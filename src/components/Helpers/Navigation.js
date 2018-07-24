@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
 
 import { NavLink } from 'react-router-dom';
+import Navigations from './Navigations';
 
 export default class Navigation extends Component {
     render() {
-        return(
+        return (
             <div className="navigation">
                 <ul>
-                    <li>
-                        <NavLink to="/" exact={true} activeClassName="active">
-                             <i className="md-icon">dashboard</i> <span>Dashboard</span>
-                        </NavLink>
-                    </li>
+                    {/* <li>
+                        <ul className="sidebar-nav-outer">
+                            <i className="md-icon">dashboard</i><span>Dashboard</span>
+                            <div className="sidebar-nav-action"><i className="md-icon">arrow_drop_down</i></div>
+                        </ul>
+                        <ul>
+                            <li>
+                                <NavLink to="/" exact={true} activeClassName="active">
+                                    <i className="md-icon">dashboard</i> <span>Dashboard</span>
+                                </NavLink>
+                            </li>
+                        </ul>
+
+                    </li> */}
+
+                    <Navigations></Navigations>
 
                     <li>
                         <NavLink to="/headquarters" activeClassName="active">
                             <i className="md-icon">settings</i> <span>Portal Setting</span>
                         </NavLink>
                     </li>
+
 
                     <li>
                         <NavLink to="/contacts" activeClassName="active">
@@ -28,7 +41,7 @@ export default class Navigation extends Component {
                     <li>
                         <NavLink to="/invoice" activeClassName="active">
                             <i className="md-icon">person_add</i> <span>User Management</span>
-                            <strong>3</strong>
+                            <strong>6</strong>
                         </NavLink>
                     </li>
 
@@ -62,7 +75,7 @@ export default class Navigation extends Component {
                         </NavLink>
                     </li>
 
-                    
+
                 </ul>
 
                 <strong>Additional Links</strong>
