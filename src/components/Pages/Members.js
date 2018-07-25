@@ -20,13 +20,13 @@ class Members extends Component {
 
         return (
             this.props.isFetching ? <Backend><div className="content-inner"><Loading /></div></Backend> :
-                <Backend>
+          
                     <div className="content-inner">
                         <div className="members">
                             {results}
                         </div>
                     </div>
-                </Backend>
+             
         );
     }
 }

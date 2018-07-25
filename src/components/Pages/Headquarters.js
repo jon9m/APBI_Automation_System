@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 import { Stack, StackActions, StackAction } from '../UI/Stack';
-import Backend from '../Layouts/Backend';
 
 export default class Headquarters extends Component {
     render() {
         return (
-            <Backend>
+           
                 <div className="content-inner">
                     <div className="stacks">
                         <Stack classes="secondary" title="CRM & Project Management">
@@ -46,7 +45,7 @@ export default class Headquarters extends Component {
                         </Stack>
                     </div>
                 </div>
-            </Backend>
+           
         )
     }
 }

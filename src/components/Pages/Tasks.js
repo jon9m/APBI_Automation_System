@@ -27,7 +27,7 @@ class Tasks extends Component {
 
         return (
             this.props.isFetching ? <Backend><div className="content-inner"><Loading /></div></Backend> :
-            <Backend>
+
                 <div className="content-inner">
                     <div className="table-responsive">
                         <table>
@@ -37,7 +37,7 @@ class Tasks extends Component {
                         </table>
                     </div>
                 </div>
-            </Backend>
+        
         );
     }
 }

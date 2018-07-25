@@ -5,14 +5,13 @@ import Progress, { ProgressWrapper } from '../UI/Progress';
 import Box from '../UI/Box';
 import Card, { CardsWrapper } from '../UI/Card';
 
-import Backend from '../Layouts/Backend';
 import Chart from '../Helpers/ChartBars';
 import PageHeader from '../Helpers/PageHeader';
 
 export default class Dashboard extends Component {
     render() {
         return (
-            <Backend>
+            
                 <div className="content-inner no-padding-top no-padding-left no-padding-right">
                     <PageHeader/>
 
@@ -64,7 +63,7 @@ export default class Dashboard extends Component {
                         </CardsWrapper>
                     </Box>
                 </div>
-            </Backend>
+            
         );
     }
 }

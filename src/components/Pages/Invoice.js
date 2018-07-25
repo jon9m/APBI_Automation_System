@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
-import Backend from '../Layouts/Backend';
-
 export default class Invoice extends Component {
     render() {
         return (
-            <Backend>
+    
                 <div className="content-inner">
                     <div className="invoice-wrapper">
                         <div className="invoice">
@@ -107,7 +105,7 @@ export default class Invoice extends Component {
                         </div>
                   </div>
               </div>
-            </Backend>
+       
         );
     }
 }

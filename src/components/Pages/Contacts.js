@@ -22,7 +22,7 @@ class Contacts extends Component {
 
         return (
             this.props.isFetching ? <Backend><div className="content-inner"><Loading /></div></Backend> :
-            <Backend>
+            
                 <div className="content-inner">
                     <Filter />
 
@@ -42,7 +42,7 @@ class Contacts extends Component {
 
                     <ReactPaginate containerClassName="pagination" />
                 </div>
-            </Backend>
+           
         );
     }
 }

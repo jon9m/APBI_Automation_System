@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
-import Backend from '../Layouts/Backend';
-
 export default class Forms extends Component {
     render() {
         return (
-            <Backend>
+            
                 <div className="content-inner">
                     <div className="row">
                         <div className="col">
@@ -170,7 +168,7 @@ export default class Forms extends Component {
                         </div>
                     </div>
                 </div>
-            </Backend>
+            
         );
     }
 }
