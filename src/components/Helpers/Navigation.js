@@ -1,36 +1,28 @@
 import React, { Component } from 'react';
 
 import { NavLink } from 'react-router-dom';
-import Navigations from './Navigations';
 
 export default class Navigation extends Component {
     render() {
-        return (
+        return(
             <div className="navigation">
                 <ul>
-                    {/* <li>
-                        <ul className="sidebar-nav-outer">
-                            <i className="md-icon">dashboard</i><span>Dashboard</span>
-                            <div className="sidebar-nav-action"><i className="md-icon">arrow_drop_down</i></div>
-                        </ul>
-                        <ul>
-                            <li>
-                                <NavLink to="/" exact={true} activeClassName="active">
-                                    <i className="md-icon">dashboard</i> <span>Dashboard</span>
-                                </NavLink>
-                            </li>
-                        </ul>
-
-                    </li> */}
-
-                    <Navigations></Navigations>
+                    <li>
+                        <NavLink to="/" exact={true} activeClassName="active">
+                             <i className="md-icon">dashboard</i> <span>Dashboard</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/" exact={true} activeClassName="active">
+                             <i className="sm-icon">dashboard</i> <span>Dashboard</span>
+                        </NavLink>
+                    </li>
 
                     <li>
                         <NavLink to="/headquarters" activeClassName="active">
                             <i className="md-icon">settings</i> <span>Portal Setting</span>
                         </NavLink>
                     </li>
-
 
                     <li>
                         <NavLink to="/contacts" activeClassName="active">
@@ -74,7 +66,6 @@ export default class Navigation extends Component {
                             <i className="md-icon">school</i> <span>Training Course</span>
                         </NavLink>
                     </li>
-
 
                 </ul>
 
