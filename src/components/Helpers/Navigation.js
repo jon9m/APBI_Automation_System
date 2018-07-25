@@ -5,19 +5,29 @@ import Aux from '../../Hoc/Auxi';
 
 export default class Navigation extends Component {
 
+    state = {
+        menuExpandedItems: []
+    }
+
     isLinkActive = () => {
         return false;
     }
 
-    menuExpandedItems = [];
-
     menuItemClickHandler = (itemId) => {
-        this.menuExpandedItems = [];
-        this.menuExpandedItems.push(itemId);
+        console.log("menuItemClickHandler itemId " + itemId);
+        this.setState({
+            menuExpandedItems: [itemId]
+        });
+        
+        //this.state.menuExpandedItems.push(itemId);  //Immutable ????
+        console.dir(this.state.menuExpandedItems);
     }
 
     subMenuItemDisplayHandler = (subItemName) => {
-        if (this.menuExpandedItems.indexOf(subItemName) >= 0) {
+        console.log("subMenuItemDisplayHandler subItemName " + subItemName);
+        console.dir(this.state.menuExpandedItems);
+
+        if (this.state.menuExpandedItems.indexOf(subItemName) >= 0) {
             return true;
         }
         return false;
@@ -45,7 +55,7 @@ export default class Navigation extends Component {
             level: 1,
             id: "portal_setting",
             title: "Portal Setting",
-            path: "/headquarters",
+            path: "/",
             children: [
                 {
                     type: "text",
@@ -66,6 +76,7 @@ export default class Navigation extends Component {
     ];
 
     render() {
+        console.log("rendering......");
         const navItems = Object.keys(this.navigationItems).map((igKey) => {
             return <Aux key={igKey}>
                 <li onClick={() => this.menuItemClickHandler(this.navigationItems[igKey].id)}>
