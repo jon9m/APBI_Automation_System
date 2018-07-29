@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
-import Backend from '../Layouts/Backend';
 import Loading from '../Helpers/Loading';
 import Progress from '../UI/Progress';
 import Filter from '../Helpers/Filter';
@@ -21,7 +20,7 @@ class Contacts extends Component {
         });
 
         return (
-            this.props.isFetching ? <Backend><div className="content-inner"><Loading /></div></Backend> :
+            this.props.isFetching ? <div className="content-inner"><Loading /></div> :
             
                 <div className="content-inner">
                     <Filter />

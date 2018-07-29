@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Backend from '../Layouts/Backend';
 import Infobox from '../UI/Infobox';
 import Loading from '../Helpers/Loading';
 
@@ -19,7 +18,7 @@ class Members extends Component {
         });
 
         return (
-            this.props.isFetching ? <Backend><div className="content-inner"><Loading /></div></Backend> :
+            this.props.isFetching ? <div className="content-inner"><Loading /></div> :
           
                     <div className="content-inner">
                         <div className="members">

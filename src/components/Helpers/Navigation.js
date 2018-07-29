@@ -55,21 +55,21 @@ export default class Navigation extends Component {
             level: 1,
             id: "portal_setting",
             title: "Portal Setting",
-            path: "/",
+            path: "/members",
             children: [
                 {
                     type: "text",
                     level: 2,
                     id: "portal_setting",
                     title: "Websites",
-                    path: "/"
+                    path: "/members"
                 },
                 {
                     type: "text",
                     level: 2,
                     id: "portal_setting",
                     title: "Social Media Accounts",
-                    path: "/"
+                    path: "/forms"
                 }
             ]
         }
@@ -88,7 +88,7 @@ export default class Navigation extends Component {
                     Object.keys(this.navigationItems[igKey].children).map((cKey) => {
                         return this.subMenuItemDisplayHandler(this.navigationItems[igKey].children[cKey].id) ?
                             <li key={cKey}>
-                                <NavLink to="/" exact={true} activeClassName="active">
+                                <NavLink to={this.navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
                                     <i className="sm-icon">dashboard</i> <span>{this.navigationItems[igKey].children[cKey].title}</span>
                                 </NavLink>
                             </li>

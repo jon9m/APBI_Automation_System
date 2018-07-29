@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Backend from '../Layouts/Backend';
 import { InfoboxProject } from '../UI/Infobox';
 import { connect } from 'react-redux';
 import { actionCreators } from '../../actions';
@@ -18,7 +17,7 @@ class Projects extends Component {
         });
 
         return (
-            this.props.isFetching ? <Backend><div className="content-inner"><Loading /></div></Backend> :
+            this.props.isFetching ? <div className="content-inner"><Loading /></div> :
            
                 <div className="content-inner">
                     <div className="projects">

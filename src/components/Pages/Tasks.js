@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Backend from '../Layouts/Backend';
 import { Button } from '../UI/Button';
 import Loading from '../Helpers/Loading';
 
@@ -26,7 +25,7 @@ class Tasks extends Component {
         });
 
         return (
-            this.props.isFetching ? <Backend><div className="content-inner"><Loading /></div></Backend> :
+            this.props.isFetching ? <div className="content-inner"><Loading /></div> :
 
                 <div className="content-inner">
                     <div className="table-responsive">
