@@ -58,7 +58,7 @@ export default class Navigation extends Component {
                     {
                         Object.keys(navigationItems[igKey].children).map((cKey) => {
                             return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
-                                <CSSTransition key={cKey} timeout={500} classNames="fade">
+                                <CSSTransition key={cKey} timeout={{ enter: 100, exit: 800 }} classNames="fade">
                                     <li key={cKey} className="submenuitems">
                                         <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
                                             <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>
