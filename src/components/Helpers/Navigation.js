@@ -3,10 +3,20 @@ import { NavLink } from 'react-router-dom';
 
 import Aux from '../../Hoc/Auxi';
 
+import navItems from './NavigationItems';
+
+import {
+    CSSTransition,
+    TransitionGroup,
+} from 'react-transition-group';
+
 export default class Navigation extends Component {
 
+    currNavItems = navItems;  //TODO  - use action creators and load during page init
+
     state = {
-        menuExpandedItems: []
+        menuExpandedItems: [],
+        navigationItems: this.currNavItems
     }
 
     isLinkActive = () => {
@@ -18,7 +28,7 @@ export default class Navigation extends Component {
         this.setState({
             menuExpandedItems: [itemId]
         });
-        
+
         //this.state.menuExpandedItems.push(itemId);  //Immutable ????
         console.dir(this.state.menuExpandedItems);
     }
@@ -33,68 +43,32 @@ export default class Navigation extends Component {
         return false;
     }
 
-    navigationItems = [
-        {
-            type: "text",
-            level: 1,
-            id: "main_dashboard",
-            title: "Dashboard",
-            path: "/",
-            children: [
-                {
-                    type: "text",
-                    level: 2,
-                    id: "main_dashboard",
-                    title: "Main Dashboard",
-                    path: "/"
-                }
-            ]
-        },
-        {
-            type: "text",
-            level: 1,
-            id: "portal_setting",
-            title: "Portal Setting",
-            path: "/members",
-            children: [
-                {
-                    type: "text",
-                    level: 2,
-                    id: "portal_setting",
-                    title: "Websites",
-                    path: "/members"
-                },
-                {
-                    type: "text",
-                    level: 2,
-                    id: "portal_setting",
-                    title: "Social Media Accounts",
-                    path: "/forms"
-                }
-            ]
-        }
-    ];
-
     render() {
-        console.log("rendering......");
-        const navItems = Object.keys(this.navigationItems).map((igKey) => {
+        console.log("rendering sidebar......");
+        const { navigationItems } = this.state;
+
+        const navItems = Object.keys(navigationItems).map((igKey) => {
             return <Aux key={igKey}>
-                <li onClick={() => this.menuItemClickHandler(this.navigationItems[igKey].id)}>
-                    <NavLink isActive={this.isLinkActive} to={this.navigationItems[igKey].path} exact={true} activeClassName="active">
-                        <i className="md-icon">dashboard</i> <span>{this.navigationItems[igKey].title}</span>
-                    </NavLink>
-                </li>
-                {
-                    Object.keys(this.navigationItems[igKey].children).map((cKey) => {
-                        return this.subMenuItemDisplayHandler(this.navigationItems[igKey].children[cKey].id) ?
-                            <li key={cKey}>
-                                <NavLink to={this.navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
-                                    <i className="sm-icon">dashboard</i> <span>{this.navigationItems[igKey].children[cKey].title}</span>
-                                </NavLink>
-                            </li>
-                            : null
-                    })
-                }
+                <TransitionGroup>
+                    <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
+                        <NavLink isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active">
+                            <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
+                        </NavLink>
+                    </li>
+                    {
+                        Object.keys(navigationItems[igKey].children).map((cKey) => {
+                            return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
+                                <CSSTransition key={cKey} timeout={500} classNames="fade">
+                                    <li key={cKey} className="submenuitems">
+                                        <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
+                                            <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>
+                                        </NavLink>
+                                    </li>
+                                </CSSTransition>
+                                : null
+                        })
+                    }
+                </TransitionGroup>
             </Aux>
         });
 
@@ -103,71 +77,6 @@ export default class Navigation extends Component {
             <div className="navigation">
                 <ul>
                     {navItems}
-
-                    {/* <li onClick={() => this.menuItemClickHandler("main_dashboard")}>
-                        <NavLink isActive={this.isLinkActive} to="/" exact={true} activeClassName="active">
-                            <i className="md-icon">dashboard</i> <span>Dashboard</span>
-                        </NavLink>
-                    </li>
-                    {
-                        this.subMenuItemDisplayHandler("main_dashboard") ?
-                            <li>
-                                <NavLink to="/" exact={true} activeClassName="active">
-                                    <i className="sm-icon">dashboard</i> <span>Main Dashboard</span>
-                                </NavLink>
-                            </li>
-                            : null
-                    } */}
-
-                    {/* <li>
-                        <NavLink to="/headquarters" activeClassName="active">
-                            <i className="md-icon">settings</i> <span>Portal Setting</span>
-                        </NavLink>
-                    </li> */}
-
-                    <li>
-                        <NavLink to="/contacts" activeClassName="active">
-                            <i className="md-icon">dvr</i> <span>Content Management</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/invoice" activeClassName="active">
-                            <i className="md-icon">person_add</i> <span>User Management</span>
-                            <strong>6</strong>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/projects" activeClassName="active">
-                            <i className="md-icon">people_outline</i> <span>Inspectors Management</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/members" activeClassName="active">
-                            <i className="md-icon">filter_none</i> <span>Bookings</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/locations" activeClassName="active">
-                            <i className="md-icon">location_searching</i> <span>Locations Management</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/communication" activeClassName="active">
-                            <i className="md-icon">contact_phone</i> <span>Communications</span>
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/training" activeClassName="active">
-                            <i className="md-icon">school</i> <span>Training Course</span>
-                        </NavLink>
-                    </li>
-
                 </ul>
 
                 <strong>Additional Links</strong>

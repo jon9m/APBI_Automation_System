@@ -725,6 +725,43 @@ a {
         top: -4px;
         width: 9px; }
 
+.submenuitems {
+  padding-left: 32px; }
+
+.fade-enter {
+  opacity: 0.01;
+  visibility: hidden;
+  transition: visibility 0s linear 0.5s; }
+
+.fade-enter-active {
+  opacity: 1; }
+
+.fade-exit {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0.5s,opacity 500ms ease-out; }
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: visibility 0s linear 0.5s,opacity 500ms ease-out; }
+
+.hide-enter {
+  opacity: 0.01;
+  visibility: hidden;
+  transition: visibility 0s linear 0.5s; }
+
+.hide-enter-active {
+  opacity: 1; }
+
+.hide-exit {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0.5s,opacity 500ms ease-out; }
+
+.hide-exit-active {
+  opacity: 0.01;
+  transition: visibility 0s linear 0.5s,opacity 500ms ease-out; }
+
 /**
  * 05. Forms
  */
