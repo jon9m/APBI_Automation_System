@@ -8,7 +8,7 @@ import Loading from '../Helpers/Loading';
 import { actionCreators } from '../../actions';
 
 class Tasks extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.dispatch(actionCreators.fetchTasks());
     }
 

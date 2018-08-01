@@ -7,7 +7,7 @@ import { actionCreators } from '../../actions';
 import Loading from '../Helpers/Loading';
 
 class Projects extends Component {
-     componentWillMount() {
+     componentDidMount() {
          this.props.dispatch(actionCreators.fetchProjects());
      }
 

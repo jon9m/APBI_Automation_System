@@ -30,6 +30,7 @@ export default class SidebarTitle extends Component {
                         </form>
 
                         <ul>
+                            <li>APBI</li>
                             <li>Leath Furniture</li>
                             <li>Grade A Investment</li>
                             <li>Desmonds Formal Wear</li>

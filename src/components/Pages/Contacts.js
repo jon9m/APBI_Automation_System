@@ -10,7 +10,7 @@ import Filter from '../Helpers/Filter';
 import { actionCreators } from '../../actions';
 
 class Contacts extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.dispatch(actionCreators.fetchContacts());
     }
 

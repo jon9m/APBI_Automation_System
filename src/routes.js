@@ -46,9 +46,9 @@ export const routes = [
         component: Invoice
     },
     {
-        path: '/projects',
-        title: 'Inspectors Management',
-        breadcrumb: 'Inspectors Management',
+        path: '/tasks',
+        title: 'Tasks',
+        breadcrumb: 'Tasks',
         breadcrumb_link: false,
         exact: true,
         component: Tasks

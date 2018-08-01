@@ -25,9 +25,22 @@ export default class Navigation extends Component {
 
     menuItemClickHandler = (itemId) => {
         console.log("menuItemClickHandler itemId " + itemId);
-        this.setState({
-            menuExpandedItems: [itemId]
-        });
+        if (this.state.menuExpandedItems.indexOf(itemId) >= 0) {
+            this.setState((prevState) => {
+                let oldState = [
+                    ...prevState.menuExpandedItems
+                ];
+                oldState.splice(oldState.indexOf(itemId));
+
+                return { 
+                    menuExpandedItems: oldState 
+                }
+            });
+        } else {
+            this.setState({
+                menuExpandedItems: [itemId]
+            });
+        }
 
         //this.state.menuExpandedItems.push(itemId);  //Immutable ????
         console.dir(this.state.menuExpandedItems);
@@ -51,7 +64,7 @@ export default class Navigation extends Component {
             return <Aux key={igKey}>
                 <TransitionGroup>
                     <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
-                        <NavLink isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active" style={{backgroundColor:'#d6d6d6'}}>
+                        <NavLink isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active" style={{ backgroundColor: '#d6d6d6' }}>
                             <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
                         </NavLink>
                     </li>
