@@ -44,21 +44,21 @@ export default class Navigation extends Component {
     }
 
     render() {
-        console.log("rendering sidebar......");
+        console.log("rendering sidebar......"); //TODO - set background color of parent div of selected  - #efefef
         const { navigationItems } = this.state;
 
         const navItems = Object.keys(navigationItems).map((igKey) => {
             return <Aux key={igKey}>
                 <TransitionGroup>
                     <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
-                        <NavLink isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active">
+                        <NavLink isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active" style={{backgroundColor:'#d6d6d6'}}>
                             <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
                         </NavLink>
                     </li>
                     {
                         Object.keys(navigationItems[igKey].children).map((cKey) => {
                             return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
-                                <CSSTransition key={cKey} timeout={{ enter: 100, exit: 800 }} classNames="fade">
+                                <CSSTransition key={cKey} timeout={{ enter: 100, exit: 300 }} classNames="fade">
                                     <li key={cKey} className="submenuitems">
                                         <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
                                             <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>

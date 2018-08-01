@@ -726,26 +726,29 @@ a {
         width: 9px; }
 
 .submenuitems {
-  padding-left: 32px; }
+  padding-left: 0px; }
 
 .fade-enter {
   opacity: 0.01;
   height: 0px;
-  -webkit-transition: height 0.3s ease-out, opacity 0.3s ease-out,visibility 0s linear 0.3s;
+  -webkit-transition: height 0.3s ease-out, opacity 0.3s ease-out;
   /* For Safari 3.1 to 6.0 */
-  transition: height 0.3s ease-out, opacity 0.3s ease-out,visibility 0s linear 0.3s; }
+  -moz-transition: height 0.3s ease-out, opacity 0.3s ease-out;
+  -o-transition: height 0.3s ease-out, opacity 0.3s ease-out;
+  transition: height 0.3s ease-out, opacity 0.3s ease-out; }
 
 .fade-enter-active {
   opacity: 1;
   height: 41px; }
 
 .fade-exit {
-  visibility: visible;
   opacity: 1;
   height: 41px;
-  -webkit-transition: height 0.3s ease-in, opacity 0.3s ease-in, visibility 0s linear 0.3s;
+  -webkit-transition: height 0.3s ease-in, opacity 0.3s ease-out;
   /* For Safari 3.1 to 6.0 */
-  transition: height 0.3s ease-in, opacity 0.3s ease-in, visibility 0s linear 0.3s; }
+  -moz-transition: height 0.3s ease-in, opacity 0.3s ease-out;
+  -o-transition: height 0.3s ease-in, opacity 0.3s ease-out;
+  transition: height 0.3s ease-in, opacity 0.3s ease-out; }
 
 .fade-exit-active {
   opacity: 0.01;
