@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { InfoboxProject } from '../UI/Infobox';
 import { connect } from 'react-redux';
-import { actionCreators } from '../../actions';
+import { actionCreators } from '../../store/actions';
 import Loading from '../Helpers/Loading';
 
 class Projects extends Component {

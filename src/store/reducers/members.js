@@ -1,4 +1,4 @@
-import { FETCHING_CONTACTS, FETCHING_CONTACTS_SUCCESS, FETCHING_CONTACTS_FAILURE } from '../actions/types';
+import { FETCHING_MEMBERS, FETCHING_MEMBERS_SUCCESS, FETCHING_MEMBERS_FAILURE } from '../actions/actionTypes';
 
 const initialState = {
     data: [],
@@ -10,19 +10,19 @@ const initialState = {
 
 export default function contactReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCHING_CONTACTS:
+        case FETCHING_MEMBERS:
             return {
                 ...state,
                 isFetching: true
             }
-        case FETCHING_CONTACTS_SUCCESS:
+        case FETCHING_MEMBERS_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
                 dataFetched: true,
                 data: action.data
             }
-        case FETCHING_CONTACTS_FAILURE:
+        case FETCHING_MEMBERS_FAILURE:
             return {
                 ...state,
                 isFetching: false,

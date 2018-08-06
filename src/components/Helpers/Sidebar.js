@@ -8,7 +8,6 @@ export default class Sidebar extends Component {
         return (
             <div className="sidebar">
                 <SidebarTitle/>
-
                 <Navigation/>
             </div>
         );

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk';
 
-import reducers from './reducers';
+import reducers from './store/reducers';
 import { routes } from './routes';
 
 import Backend from './components/Layouts/Backend';

@@ -7,7 +7,7 @@ import Loading from '../Helpers/Loading';
 import Progress from '../UI/Progress';
 import Filter from '../Helpers/Filter';
 
-import { actionCreators } from '../../actions';
+import { actionCreators } from '../../store/actions';
 
 class Contacts extends Component {
     componentDidMount() {

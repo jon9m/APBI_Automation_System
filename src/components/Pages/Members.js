@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Infobox from '../UI/Infobox';
 import Loading from '../Helpers/Loading';
 
-import { actionCreators } from '../../actions';
+import { actionCreators } from '../../store/actions';
 
 class Members extends Component {
     componentDidMount() {

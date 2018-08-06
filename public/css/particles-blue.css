@@ -2345,6 +2345,8 @@ table {
           margin: 20px 0; }
           .footer ul li:last-child {
             margin-bottom: 0; } }
+  .footer a {
+    color: #3c8dbc; }
 
 .footer-left {
   line-height: 1.5; }

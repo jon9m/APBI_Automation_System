@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../UI/Button';
 import Loading from '../Helpers/Loading';
 
-import { actionCreators } from '../../actions';
+import { actionCreators } from '../../store/actions';
 
 class Tasks extends Component {
     componentDidMount() {

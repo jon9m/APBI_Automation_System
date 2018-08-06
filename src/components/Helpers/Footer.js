@@ -5,7 +5,7 @@ export default class Footer extends Component {
         return (
             <div className="footer">
                 <div className="footer-left">
-                    &copy; 2017 Created by Code Vision. All rights reserved.
+                    Copyright &copy; <a href="http://www.seoinstitute.com.au/">2016 SEO Institute of Australia.</a> All rights reserved.
                 </div>
 
                 <div className="footer-right">

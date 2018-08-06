@@ -33,7 +33,6 @@ export default class Toolbar extends Component {
                             </a>
                         </li>
                     </ul>
-
                     <Navigation />
 
                     <ul className="bottom">

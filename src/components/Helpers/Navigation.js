@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { NavLink } from 'react-router-dom';
-
 import Aux from '../../Hoc/Auxi';
-
-import navItems from './NavigationItems';
 
 import {
     CSSTransition,
     TransitionGroup,
 } from 'react-transition-group';
 
-export default class Navigation extends Component {
-
-    currNavItems = navItems;  //TODO  - use action creators and load during page init
+class Navigation extends Component {
 
     state = {
-        menuExpandedItems: [],
-        navigationItems: this.currNavItems
+        menuExpandedItems: []
     }
 
     isLinkActive = () => {
@@ -32,8 +28,8 @@ export default class Navigation extends Component {
                 ];
                 oldState.splice(oldState.indexOf(itemId));
 
-                return { 
-                    menuExpandedItems: oldState 
+                return {
+                    menuExpandedItems: oldState
                 }
             });
         } else {
@@ -57,8 +53,8 @@ export default class Navigation extends Component {
     }
 
     render() {
-        console.log("rendering sidebar......"); //TODO - set background color of parent div of selected  - #efefef
-        const { navigationItems } = this.state;
+        console.dir("rendering sidebar......" + this.props.navigationItems); //TODO - set background color of parent div of selected  - #efefef
+        const navigationItems = this.props.navigationItems;
 
         const navItems = Object.keys(navigationItems).map((igKey) => {
             return <Aux key={igKey}>
@@ -117,3 +113,13 @@ export default class Navigation extends Component {
         );
     }
 }
+
+
+const mapStateToProps = state => {
+    console.dir("state.navigationState.navigationItems " + state.navigationState.navigationItems);
+    return {
+        navigationItems: state.navigationState.navigationItems
+    }
+}
+
+export default connect(mapStateToProps, null)(Navigation);

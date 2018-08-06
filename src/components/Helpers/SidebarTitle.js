@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
-export default class SidebarTitle extends Component {
+import { connect } from 'react-redux';
+import { actionCreators } from '../../store/actions';
+
+class SidebarTitle extends Component {
     toggleBodyClass() {
         document.body.classList.toggle('sidebar-title-content-open');
     }
@@ -9,7 +13,7 @@ export default class SidebarTitle extends Component {
         return (
             <h1 className="sidebar-title-wrapper">
                 <div className="sidebar-title-inner" onClick={this.toggleBodyClass.bind(this)}>
-                    <div className="sidebar-subtitle">Switch User Account</div>
+                    <div className="sidebar-subtitle">Switch Workspace</div>
                     <div className="sidebar-title">System Admin</div>
 
                     <div className="sidebar-action">
@@ -18,20 +22,19 @@ export default class SidebarTitle extends Component {
                 </div>
 
                 <div className="sidebar-title-content">
-                    <div className="sidebar-title-content-label">
-                        Switch Company Account
-                    </div>
+                    {/* <div className="sidebar-title-content-label">
+                        Switch Workspace
+                    </div> */}
 
                     <div className="sidebar-title-content-body">
                         <form>
                             <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Search Company"/>
+                                <input type="text" className="form-control" placeholder="Search "/>
                             </div>
                         </form>
-
                         <ul>
-                            <li>APBI</li>
-                            <li>Leath Furniture</li>
+                            <li onClick={() => this.props.onChangeWorkspace('apbi')}>APBI</li>
+                            <li onClick={() => this.props.onChangeWorkspace('xxx')}>Leath Furniture</li>
                             <li>Grade A Investment</li>
                             <li>Desmonds Formal Wear</li>
                             <li>Dun Rite Lawn Maintenance</li>
@@ -40,12 +43,20 @@ export default class SidebarTitle extends Component {
                             <li>Wholesale Club, Inc.</li>
                         </ul>
 
-                        <div className="sidebar-title-content-body-more">
+                        {/* <div className="sidebar-title-content-body-more">
                             Show All Companies
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </h1>
         );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onChangeWorkspace: (workspace) => (dispatch(actionCreators.initNavigationItems(workspace)))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SidebarTitle);
