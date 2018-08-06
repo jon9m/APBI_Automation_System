@@ -62,7 +62,7 @@ class Navigation extends Component {
     render() {
         let navItems = <Spinner />;
 
-        console.dir("rendering sidebar......" + this.props.navigationItems); //TODO - set background color of parent div of selected  - #efefef
+        console.dir("rendering sidebar......" + this.props.navigationItems);
         const navigationItems = this.props.navigationItems;
 
         if (!this.props.loading) {
@@ -70,7 +70,13 @@ class Navigation extends Component {
                 return <Aux key={igKey}>
                     <TransitionGroup>
                         <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
-                            <NavLink onClick={(e) => this.handleClick(e, navigationItems[igKey].children)} isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active" style={{ backgroundColor: '#d6d6d6' }}>
+                            <NavLink 
+                                onClick={(e) => this.handleClick(e, navigationItems[igKey].children)} 
+                                isActive={this.isLinkActive} 
+                                to={navigationItems[igKey].path} 
+                                exact={true} 
+                                activeClassName="active" 
+                                style={{ backgroundColor: '#4559640f' }}>
                                 <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
                             </NavLink>
                         </li>
