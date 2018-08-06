@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
 import Aux from '../../Hoc/Auxi';
+import Spinner from '../Helpers/Spinner/Spinner';
 
 import {
     CSSTransition,
@@ -52,34 +53,44 @@ class Navigation extends Component {
         return false;
     }
 
+    handleClick(e, children) {
+        if (children && children.length > 0) {
+            e.preventDefault();
+        }
+    }
+
     render() {
+        let navItems = <Spinner />;
+
         console.dir("rendering sidebar......" + this.props.navigationItems); //TODO - set background color of parent div of selected  - #efefef
         const navigationItems = this.props.navigationItems;
 
-        const navItems = Object.keys(navigationItems).map((igKey) => {
-            return <Aux key={igKey}>
-                <TransitionGroup>
-                    <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
-                        <NavLink isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active" style={{ backgroundColor: '#d6d6d6' }}>
-                            <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
-                        </NavLink>
-                    </li>
-                    {
-                        Object.keys(navigationItems[igKey].children).map((cKey) => {
-                            return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
-                                <CSSTransition key={cKey} timeout={{ enter: 100, exit: 300 }} classNames="fade">
-                                    <li key={cKey} className="submenuitems">
-                                        <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
-                                            <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>
-                                        </NavLink>
-                                    </li>
-                                </CSSTransition>
-                                : null
-                        })
-                    }
-                </TransitionGroup>
-            </Aux>
-        });
+        if (!this.props.loading) {
+            navItems = Object.keys(navigationItems).map((igKey) => {
+                return <Aux key={igKey}>
+                    <TransitionGroup>
+                        <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
+                            <NavLink onClick={(e) => this.handleClick(e, navigationItems[igKey].children)} isActive={this.isLinkActive} to={navigationItems[igKey].path} exact={true} activeClassName="active" style={{ backgroundColor: '#d6d6d6' }}>
+                                <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
+                            </NavLink>
+                        </li>
+                        {
+                            Object.keys(navigationItems[igKey].children).map((cKey) => {
+                                return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
+                                    <CSSTransition key={cKey} timeout={{ enter: 100, exit: 300 }} classNames="fade">
+                                        <li key={cKey} className="submenuitems">
+                                            <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
+                                                <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>
+                                            </NavLink>
+                                        </li>
+                                    </CSSTransition>
+                                    : null
+                            })
+                        }
+                    </TransitionGroup>
+                </Aux>
+            });
+        }
 
 
         return (
@@ -118,7 +129,8 @@ class Navigation extends Component {
 const mapStateToProps = state => {
     console.dir("state.navigationState.navigationItems " + state.navigationState.navigationItems);
     return {
-        navigationItems: state.navigationState.navigationItems
+        navigationItems: state.navigationState.navigationItems,
+        loading: state.navigationState.loading
     }
 }
 

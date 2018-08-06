@@ -55,7 +55,7 @@ class SidebarTitle extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChangeWorkspace: (workspace) => (dispatch(actionCreators.initNavigationItems(workspace)))
+        onChangeWorkspace: (workspace) => (dispatch(actionCreators.loadNavigationItems(workspace)))
     }
 }
 

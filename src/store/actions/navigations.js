@@ -2,16 +2,16 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios';
 
-export const initNavigationItems = (workspace) => {
+export const loadNavigationItems = (workspace) => {
     // return dispatch => {
     //     //Async code
     //     axios.get('/data/navigationitems.json').then(response => {
-    //         dispatch(loadNavigationItems(response.data));
+    //         dispatch(loadNavigationItemsSucces(response.data));
     //     }).catch(err => {
     //         dispatch(loadNavigationItemsFail());
     //     });
     // };
-    if(workspace !== 'apbi'){
+    if (workspace !== 'apbi') {
         return {
             type: actionTypes.LOAD_NAVIGATION_ITEMS,
             navigationItems: []
@@ -19,13 +19,22 @@ export const initNavigationItems = (workspace) => {
     }
 
     return dispatch => {
-        fetch('/data/navigationitems.json')
+
+        dispatch(loadNavigationItemsStarts());
+
+        fetch('/data/navigationitems.json')   //TODO 
             .then((response) => response.json())
             .then((response) => {
                 console.dir(response.data);
-                dispatch(loadNavigationItems(response.data));
+                dispatch(loadNavigationItemsSucces(response.data));
             });
     }
+}
+
+export const loadNavigationItemsStarts = () => {
+    return {
+        type: actionTypes.LOAD_NAVIGATION_ITEMS_START
+    };
 }
 
 export const loadNavigationItemsFail = () => {
@@ -34,7 +43,7 @@ export const loadNavigationItemsFail = () => {
     };
 }
 
-export const loadNavigationItems = (navigationItems) => {
+export const loadNavigationItemsSucces = (navigationItems) => {
     return {
         type: actionTypes.LOAD_NAVIGATION_ITEMS,
         navigationItems: navigationItems
