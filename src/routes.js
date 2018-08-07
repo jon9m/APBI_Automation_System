@@ -116,5 +116,13 @@ export const routes = [
         breadcrumb_link: false,
         exact: true,
         component: TrainingCourses
+    },
+    {
+        path: '/userspolicies',
+        title: 'Users and Policies',
+        breadcrumb: 'Users and Policies',
+        breadcrumb_link: false,
+        exact: true,
+        component: Communications
     }
 ];

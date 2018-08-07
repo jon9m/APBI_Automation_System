@@ -13,11 +13,8 @@ import {
 class Navigation extends Component {
 
     state = {
-        menuExpandedItems: []
-    }
-
-    isLinkActive = () => {
-        return false;
+        menuExpandedItems: [],
+        subMenuClickedItem: []
     }
 
     menuItemClickHandler = (itemId) => {
@@ -38,31 +35,53 @@ class Navigation extends Component {
                 menuExpandedItems: [itemId]
             });
         }
+    }
 
-        //this.state.menuExpandedItems.push(itemId);  //Immutable ????
-        console.dir(this.state.menuExpandedItems);
+    subItemClickHandler = (itemId) => {
+        console.log("sub menuItemClickHandler itemId " + itemId);
+        if (this.state.subMenuClickedItem.indexOf(itemId) >= 0) {
+            this.setState((prevState) => {
+                let oldState = [
+                    ...prevState.subMenuClickedItem
+                ];
+                oldState.splice(oldState.indexOf(itemId));
+
+                return {
+                    subMenuClickedItem: oldState
+                }
+            });
+        } else {
+            this.setState({
+                subMenuClickedItem: [itemId]
+            });
+        }
+    }
+
+    isSubItemActive = (path) => {
+        if (this.state.subMenuClickedItem.indexOf(path) >= 0) {
+            return true;
+        }
+        return false;
     }
 
     subMenuItemDisplayHandler = (subItemName) => {
-        console.log("subMenuItemDisplayHandler subItemName " + subItemName);
-        console.dir(this.state.menuExpandedItems);
-
         if (this.state.menuExpandedItems.indexOf(subItemName) >= 0) {
             return true;
         }
         return false;
     }
 
-    handleClick(e, children) {
+    mainMenuItemHandleClick(e, children) {
         if (children && children.length > 0) {
             e.preventDefault();
         }
     }
+    
 
     render() {
         let navItems = <Spinner />;
 
-        console.dir("rendering sidebar......" + this.props.navigationItems);
+        console.dir("rendering sidebar......");
         const navigationItems = this.props.navigationItems;
 
         if (!this.props.loading) {
@@ -71,8 +90,7 @@ class Navigation extends Component {
                     <TransitionGroup>
                         <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
                             <NavLink 
-                                onClick={(e) => this.handleClick(e, navigationItems[igKey].children)} 
-                                isActive={this.isLinkActive} 
+                                onClick={(e) => this.mainMenuItemHandleClick(e, navigationItems[igKey].children)}
                                 to={navigationItems[igKey].path} 
                                 exact={true} 
                                 activeClassName="active" 
@@ -84,8 +102,8 @@ class Navigation extends Component {
                             Object.keys(navigationItems[igKey].children).map((cKey) => {
                                 return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
                                     <CSSTransition key={cKey} timeout={{ enter: 100, exit: 300 }} classNames="fade">
-                                        <li key={cKey} className="submenuitems">
-                                            <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active">
+                                        <li key={cKey} className="submenuitems" onClick={() => this.subItemClickHandler(navigationItems[igKey].children[cKey].path)}>
+                                            <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active" isActive={() => this.isSubItemActive(navigationItems[igKey].children[cKey].path)}>
                                                 <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>
                                             </NavLink>
                                         </li>
@@ -133,7 +151,7 @@ class Navigation extends Component {
 
 
 const mapStateToProps = state => {
-    console.dir("state.navigationState.navigationItems " + state.navigationState.navigationItems);
+    console.dir("updating mapStateToProps in Navigation ");
     return {
         navigationItems: state.navigationState.navigationItems,
         loading: state.navigationState.loading

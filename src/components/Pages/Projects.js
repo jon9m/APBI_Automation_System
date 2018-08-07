@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { InfoboxProject } from '../UI/Infobox';
 import { connect } from 'react-redux';
 import { actionCreators } from '../../store/actions';
-import Loading from '../Helpers/Loading';
+import Spinner from '../Helpers/Spinner/Spinner';
 
 class Projects extends Component {
      componentDidMount() {
@@ -17,7 +17,7 @@ class Projects extends Component {
         });
 
         return (
-            this.props.isFetching ? <div className="content-inner"><Loading /></div> :
+            this.props.isFetching ? <Spinner /> :
            
                 <div className="content-inner">
                     <div className="projects">
