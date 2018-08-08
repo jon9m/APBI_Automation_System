@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Stat extends Component {
     render() {
-        return(
+        return (
             <div className="stat-item">
                 {this.props.value ? <div className="stat-item-value">{this.props.value}</div> : ''}
                 {this.props.title ? <div className="stat-item-title">{this.props.title}</div> : ''}
@@ -25,7 +25,9 @@ export class StatsWrapper extends Component {
     render() {
         return (
             <div className="stats-wrapper">
-                {this.props.children}
+                <a href="">
+                    {this.props.children}
+                </a>
             </div>
         )
     }

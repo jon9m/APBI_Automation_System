@@ -9,8 +9,11 @@ import { routes } from './routes';
 
 import Backend from './components/Layouts/Backend';
 
+//Dev tools ext
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 function configureStore(initialState) {
-    const enhancer = compose(applyMiddleware(thunkMiddleware));
+    const enhancer = compose(composeEnhancers(applyMiddleware(thunkMiddleware)));
     return createStore(reducers, initialState, enhancer);
 }
 

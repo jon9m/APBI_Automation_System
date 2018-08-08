@@ -94,7 +94,7 @@ class Navigation extends Component {
                                 to={navigationItems[igKey].path} 
                                 exact={true} 
                                 activeClassName="active" 
-                                style={{ backgroundColor: '#4559640f' }}>
+                                style={{ backgroundColor: '#4559641f' }}>
                                 <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
                             </NavLink>
                         </li>

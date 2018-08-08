@@ -14,7 +14,7 @@ import TrainingCourses from './components/Pages/TrainingCourses';
 
 export const routes = [
     {
-        path: '/',
+        path: '/dashboard',
         title: 'Dashboard',
         breadcrumb: 'Dashboard',
         breadcrumb_link: true,
