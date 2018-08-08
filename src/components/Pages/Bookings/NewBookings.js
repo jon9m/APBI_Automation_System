@@ -1,42 +1,374 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
+import { connect } from 'react-redux';
+
+import Spinner from '../../Helpers/Spinner/Spinner';
+import { actionCreators } from '../../../store/actions';
 
 class NewBookings extends Component {
-    render() {
-        const data = [{
-            name: 'Tanner Linsley',
-            age: 26,
-            friend: {
-                name: 'Jason Maurer',
-                age: 23,
-            }
-        }];
 
-        const columns = [{
-            Header: 'Name',
-            accessor: 'name' // String-based value accessors!
-        }, {
-            Header: 'Age',
-            accessor: 'age',
-            Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-        }, {
-            id: 'friendName', // Required because our accessor is not a string
-            Header: 'Friend Name',
-            accessor: d => d.friend.name // Custom value accessors!
-        }, {
-            Header: props => <span>Friend Age</span>, // Custom header components!
-            accessor: 'friend.age'
-        }];
+    componentDidMount() {
+        this.props.loadNewBookings();
+    }
+
+    render() {
+        const data = [
+            {
+                "Reference_Number": "2010186779",
+                "Date_Time": "14:30 03 May 2018",
+                "Client": "Sarah Formica",
+                "Client_phone": "0447373730",
+                "Property_Address": "20 CALDWELL STREET DARLINGHURST NSW 2010 ",
+                "Building_Type": "House",
+                "Building_Size": "2 Bedroom",
+                "Inspection_Type": "Dilapidation Inspection",
+                "Payment": "<span class=\"label label-danger\">$0.0 of $440.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1677','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1677','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1677','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1677','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1677');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1677;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+            },
+            {
+                "Reference_Number": "2010186761",
+                "Date_Time": "14:00 03 May 2018",
+                "Client": "Sarah  Formica",
+                "Client_phone": "0447373730",
+                "Property_Address": "24 CALDWELL STREET DARLINGHURST NSW 2010 ",
+                "Building_Type": "House",
+                "Building_Size": "2 Bedroom",
+                "Inspection_Type": "Dilapidation Inspection",
+                "Payment": "<span class=\"label label-danger\">$0.0 of $440.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1676','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1676','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1676','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1676','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1676');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1676;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+            },
+            {
+                "Reference_Number": "3978186660",
+                "Date_Time": "16:30 03 May 2018",
+                "Client": "Mahasen  Munasinghe",
+                "Client_phone": "0435914677",
+                "Property_Address": "Lot 1506 Charolais Way Clyde North VIC 3978 ",
+                "Building_Type": "House",
+                "Building_Size": "3 Bedroom +",
+                "Inspection_Type": "New Building Inspection - 4 Stages Package",
+                "Payment": "<span class=\"label label-danger\">$0.0 of $1,507.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1666','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1666','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1666','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1666');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1666;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>",
+                "data": [
+                    {
+                        "Inspection_Type": "New Building Inspection - Lockup Stage",
+                        "Date_Time": "16:30 03 May 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1670','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1670','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Frame Stage",
+                        "Date_Time": "16:30 03 May 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1668','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1668','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Slab Stage",
+                        "Date_Time": "16:30 03 May 2018",
+                        "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1667','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1667','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Completion Stage",
+                        "Date_Time": "16:30 03 May 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1669','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1669','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    }
+                ]
+            },
+            {
+                "Reference_Number": "3429186301",
+                "Date_Time": "13:00 26 Apr 2018",
+                "Client": "Leigh Cook",
+                "Client_phone": "0422487939 - cara",
+                "Property_Address": "2 HARCOMBE DRIVE SUNBURY VIC 3429",
+                "Building_Type": "House",
+                "Building_Size": "3 Bedroom +",
+                "Inspection_Type": "Pre-Purchase Building Inspection",
+                "Payment": "<span class=\"label label-danger\">$0.0 of $462.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1630','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1630','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1630','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1630','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1630');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1630;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+            },
+            {
+                "Reference_Number": "3429186293",
+                "Date_Time": "12:30 26 Apr 2018",
+                "Client": "Leigh Cook",
+                "Client_phone": "0422487939 cara on behalf of leigh",
+                "Property_Address": "2 HARCOMBE DRIVE SUNBURY VIC 3429",
+                "Building_Type": "House",
+                "Building_Size": "3 Bedroom +",
+                "Inspection_Type": "Pre-Purchase Building Inspection",
+                "Payment": "<span class=\"label label-danger\">$0.0 of $462.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1629','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1629','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1629','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1629','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1629');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1629;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+            },
+            {
+                "Reference_Number": "4051186031",
+                "Date_Time": "11:30 24 Apr 2018",
+                "Client": "Jaimi-Lee Wilsher",
+                "Client_phone": "0432836816",
+                "Property_Address": "UNIT 1 54 SAMFORD ROAD ALDERLEY QLD 4051",
+                "Building_Type": "Apartment",
+                "Building_Size": "2 Bedroom",
+                "Inspection_Type": "Building & Pest Inspection",
+                "Payment": "<span class=\"label label-danger\">$0.0 of $330.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1603','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1603','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1603','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1603','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1603');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1603;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+            },
+            {
+                "Reference_Number": "3064185501",
+                "Date_Time": "15:30 18 Apr 2018",
+                "Client": "Ameer  Minhas ",
+                "Client_phone": "0468987141",
+                "Property_Address": "Lot 31902, 84 Wisteria Avenue Craigieburn VIC 3064  ",
+                "Building_Type": "House",
+                "Building_Size": "3 Bedroom +",
+                "Inspection_Type": "New Building Inspection - 4 Stages Package",
+                "Payment": "<span class=\"label label-danger\">$363.0 of $1,507.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1550','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1550','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1550','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1550');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1550;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>",
+                "data": [
+                    {
+                        "Inspection_Type": "New Building Inspection - Lockup Stage",
+                        "Date_Time": "15:30 18 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1553','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1553','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Slab Stage",
+                        "Date_Time": "15:30 18 Apr 2018",
+                        "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1552','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1552','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Frame Stage",
+                        "Date_Time": "15:30 18 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1554','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1554','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Completion Stage",
+                        "Date_Time": "15:30 18 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1551','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1551','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    }
+                ]
+            },
+            {
+                "Reference_Number": "2066185287",
+                "Date_Time": "07:00 16 Apr 2018",
+                "Client": "Ray  Chen",
+                "Client_phone": "0433388555",
+                "Property_Address": "Lot 25\/675 Mowbray Road West Lane Cove North NSW 2066 ",
+                "Building_Type": "House",
+                "Building_Size": "3 Bedroom +",
+                "Inspection_Type": "New Building Inspection - 4 Stages Package",
+                "Payment": "<span class=\"label label-danger\">$363.0 of $1,507.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1528','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1528','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1528','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1528');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1528;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>",
+                "data": [
+                    {
+                        "Inspection_Type": "New Building Inspection - Lockup Stage",
+                        "Date_Time": "07:00 16 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1530','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1530','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Frame Stage",
+                        "Date_Time": "07:00 16 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1531','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1531','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Slab Stage",
+                        "Date_Time": "07:00 16 Apr 2018",
+                        "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1532','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1532','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Completion Stage",
+                        "Date_Time": "07:00 16 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1529','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1529','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    }
+                ]
+            },
+            {
+                "Reference_Number": "2557185135",
+                "Date_Time": "07:00 13 Apr 2018",
+                "Client": "Ajantha  Panapiti",
+                "Client_phone": "0450979868",
+                "Property_Address": "Lot 5134, 11 Silverton Street Gregory Hills NSW 2557  ",
+                "Building_Type": "House",
+                "Building_Size": "3 Bedroom +",
+                "Inspection_Type": "New Building Inspection - 4 Stages Package",
+                "Payment": "<span class=\"label label-success\">$1507.0 of $1,507.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1513','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1513','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1513','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1513');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1513;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>",
+                "data": [
+                    {
+                        "Inspection_Type": "New Building Inspection - Completion Stage",
+                        "Date_Time": "07:00 13 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1514','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1514','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Slab Stage",
+                        "Date_Time": "07:00 13 Apr 2018",
+                        "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1517','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1517','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Lockup Stage",
+                        "Date_Time": "07:00 13 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1515','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1515','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Frame Stage",
+                        "Date_Time": "07:00 13 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1516','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1516','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    }
+                ]
+            },
+            {
+                "Reference_Number": "3064184413",
+                "Date_Time": "14:30 06 Apr 2018",
+                "Client": "Mary Anne Medina",
+                "Client_phone": "0416643298",
+                "Property_Address": "Lot 2040 8 Camberwell Parade Mickleham VIC 3064 ",
+                "Building_Type": "House",
+                "Building_Size": "3 Bedroom +",
+                "Inspection_Type": "New Building Inspection - 4 Stages Package",
+                "Payment": "<span class=\"label label-danger\">$363.0 of $1,452.00<\/span>",
+                "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1441','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1441','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1441','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1441');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1441;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>",
+                "data": [
+                    {
+                        "Inspection_Type": "New Building Inspection - Frame Stage",
+                        "Date_Time": "14:30 06 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1442','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1442','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Lockup Stage",
+                        "Date_Time": "14:30 06 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1444','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1444','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Slab Stage",
+                        "Date_Time": "07:30 09 Apr 2018",
+                        "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1445','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1445','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    },
+                    {
+                        "Inspection_Type": "New Building Inspection - Completion Stage",
+                        "Date_Time": "14:30 06 Apr 2018",
+                        "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                        "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1443','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1443','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                    }
+                ]
+            }
+        ];
+
+        const columns = [
+            // {
+            //     Header: 'Name',
+            //     accessor: 'name' // String-based value accessors!
+            // }, {
+            //     Header: 'Age',
+            //     accessor: 'age',
+            //     Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+            // }, {
+            //     id: 'friendName', // Required because our accessor is not a string
+            //     Header: 'Friend Name',
+            //     accessor: d => d.friend.name // Custom value accessors!
+            // }, {
+            //     Header: props => <span>Friend Age</span>, // Custom header components!
+            //     accessor: 'friend.age'
+            // }
+
+            {
+                Header: 'Reference Number',
+                accessor: 'Reference_Number'
+            },
+            {
+                Header: 'Date Time',
+                accessor: 'Date_Time'
+            },
+            {
+                Header: 'Client',
+                accessor: 'Client'
+            },
+            {
+                Header: 'Client phone',
+                accessor: 'Client_phone'
+            },
+            {
+                Header: 'Property Address',
+                accessor: 'Property_Address'
+            },
+            {
+                Header: 'Building Type',
+                accessor: 'Building_Type'
+            },
+            {
+                Header: 'Building Size',
+                accessor: 'Building_Size'
+            },
+            {
+                Header: 'Inspection Type',
+                accessor: 'Inspection_Type'
+            }
+            // ,
+            // {
+            //     Header: 'Payment',
+            //     accessor: 'Payment'
+            // },
+            // {
+            //     Header: 'Status',
+            //     accessor: 'Status'
+            // },
+            // {
+            //     Header: 'options',
+            //     accessor: 'options'
+            // }
+        ];
+
+        let newBookings = <Spinner />;
+
+        if (!this.props.loading) {
+            newBookings = <ReactTable
+                data={data}
+                columns={columns}
+                filterable
+            />;
+        }
+
         return (
             <div className="box">
-                <ReactTable
-                    data={data}
-                    columns={columns}
-                    filterable
-                />
+                {newBookings}
             </div>
         );
     }
 }
 
-export default NewBookings;
+const mapDispatchToProps = dispatch => {
+    return {
+        loadNewBookings: () => (dispatch(actionCreators.fetchNewBookings()))
+    }
+}
+
+const mapStateToProps = state => {
+    console.dir("updating mapStateToProps in New Bookings ");
+    return {
+        newBookings: state.dashboardState.data,
+        loading: state.dashboardState.isFetching
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewBookings);
