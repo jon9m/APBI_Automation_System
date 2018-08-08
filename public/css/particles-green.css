@@ -2370,6 +2370,9 @@ table {
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.1); }
 
+.ReactTable div:focus {
+  outline: none; }
+
 .ReactTable * {
   box-sizing: border-box; }
 
