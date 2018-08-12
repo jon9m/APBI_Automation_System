@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk';
@@ -23,15 +23,13 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <Router>
-                    <Backend>
-                        <Switch>
-                            {routes.map((route, index) => {
-                                return <Route key={index} path={route.path} component={route.component} exact={route.exact} />
-                            })}
-                        </Switch>
-                    </Backend>
-                </Router>
+                <Backend>
+                    <Switch>
+                        {routes.map((route, index) => {
+                            return <Route key={index} path={route.path} component={route.component} exact={route.exact} />
+                        })}
+                    </Switch>
+                </Backend>
             </Provider>
         );
     }

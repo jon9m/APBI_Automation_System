@@ -1,4 +1,4 @@
-import { FETCHING_NEWBOOKINGS, FETCHING_NEWBOOKINGS_SUCCESS } from '../actions/actionTypes';
+import { FETCHING_NEWBOOKINGS, FETCHING_NEWBOOKINGS_SUCCESS, FETCHING_NEWBOOKINGS_FAIL } from '../actions/actionTypes';
 
 const initialState = {
     data: [],
@@ -14,6 +14,12 @@ export default function dashboardReducer(state = initialState, action) {
                 isFetching: true
             }
         case FETCHING_NEWBOOKINGS_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                data: action.data
+            }
+        case FETCHING_NEWBOOKINGS_FAIL:
             return {
                 ...state,
                 isFetching: false,

@@ -1,6 +1,7 @@
 
 import * as actionTypes from './actionTypes';
 import axios from '../../axios';
+import * as endpoints from '../../Shared/app-global';
 
 export const loadNavigationItems = (workspace) => {
     // return dispatch => {
@@ -22,7 +23,7 @@ export const loadNavigationItems = (workspace) => {
 
         dispatch(loadNavigationItemsStarts());
 
-        fetch('/data/navigationitems.json')   //TODO 
+        fetch(endpoints.API_NAVIGATION_ITEMS)   //TODO 
             .then((response) => response.json())
             .then((response) => {
                 console.dir(response.data);

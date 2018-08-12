@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import * as endpoints from '../../Shared/app-global';
 
 export function fetchNewBookings() {
     return (dispatch) => {
@@ -7,12 +8,18 @@ export function fetchNewBookings() {
             isFetching: true
         });
 
-        fetch('/data/newBookings.json')
+        fetch(endpoints.API_NEW_BOOKONGS)
             .then((response) => response.json())
             .then((response) => {
                 dispatch({
                     type: types.FETCHING_NEWBOOKINGS_SUCCESS,
                     data: response.data,
+                    isFetching: false
+                });
+            }).catch(err =>{
+                dispatch({
+                    type: types.FETCHING_NEWBOOKINGS_FAIL,
+                    data: [],
                     isFetching: false
                 });
             });
