@@ -1,0 +1,33 @@
+{
+    "draw": 2,
+    "recordsTotal": 2,
+    "recordsFiltered": 2,
+    "data": [
+        {
+            "Reference_Number": "4069186338",
+            "Date_Time": "09:00 01 May 2018",
+            "Client": "Tara Taylor",
+            "Client_phone": "0405960107",
+            "Property_Address": "11 KITCHING STREET CHAPEL HILL QLD 4069",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-success\">$495.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-success\">Finalised<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1633','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1633','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1633','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1633','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1633');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInspectionReport?id=1633');\"><i class=\"fa fa-file-text text-success\" aria-hidden=\"true\" title=\"Submit a Report\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpFinaliseInspection?id=1633','form-modal-content');\" ><i class=\"fa fa-thumbs-up text-warning\" aria-hidden=\"true\" title=\"Finalise Inspection\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1633;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "4551183876",
+            "Date_Time": "09:30 20 Apr 2018",
+            "Client": "Janeene Hill",
+            "Client_phone": "0424848269",
+            "Property_Address": "15\/2A Albatross Avenue Aroona QLD 4551 ",
+            "Building_Type": "House",
+            "Building_Size": "2 Bedroom",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $440.00<\/span>",
+            "Status": "<span class=\"label label-success\">Finalised<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1387','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1387','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1387','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1387','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1387');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInspectionReport?id=1387');\"><i class=\"fa fa-file-text text-success\" aria-hidden=\"true\" title=\"Submit a Report\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpFinaliseInspection?id=1387','form-modal-content');\" ><i class=\"fa fa-thumbs-up text-warning\" aria-hidden=\"true\" title=\"Finalise Inspection\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1387;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        }
+    ]
+}

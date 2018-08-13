@@ -1,0 +1,163 @@
+{
+    "draw": 2,
+    "recordsTotal": 98,
+    "recordsFiltered": 98,
+    "data": [
+        {
+            "Reference_Number": "3978186660",
+            "Date_Time": "16:30 03 May 2018",
+            "Client": "Mahasen  Munasinghe",
+            "Client_phone": "0435914677",
+            "Property_Address": "Lot 1506 Charolais Way Clyde North VIC 3978 ",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "New Building Inspection - 4 Stages Package",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $1,507.00<\/span>",
+            "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1666','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1666','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1666');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1666;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>",
+            "data": [
+                {
+                    "Inspection_Type": "New Building Inspection - Lockup Stage",
+                    "Date_Time": "16:30 03 May 2018",
+                    "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                    "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1670','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1670','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                },
+                {
+                    "Inspection_Type": "New Building Inspection - Completion Stage",
+                    "Date_Time": "16:30 03 May 2018",
+                    "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                    "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1669','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1669','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                },
+                {
+                    "Inspection_Type": "New Building Inspection - Frame Stage",
+                    "Date_Time": "16:30 03 May 2018",
+                    "Status": "<span class=\"label label-warning\">Confirmation Pending<\/span>",
+                    "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1668','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1668','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                },
+                {
+                    "Inspection_Type": "New Building Inspection - Slab Stage",
+                    "Date_Time": "16:30 03 May 2018",
+                    "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+                    "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpBookingDetails?id=1667','form-modal-content');\" ><i class=\"fa fa-info-circle text-warning\" title=\"Change Booking Details\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\" onclick=\"mhmAjax.link('cpAllocateInspector?id=1667','form-modal-content');\" ><i class=\"fa fa-user text-warning\" aria-hidden=\"true\" title=\"Allocate an Inspector\"><\/i><\/a>"
+                }
+            ]
+        },
+        {
+            "Reference_Number": "6025186658",
+            "Date_Time": "10:00 03 May 2018",
+            "Client": "Damon Lonnie",
+            "Client_phone": "0413024601",
+            "Property_Address": "10 Lindfield Retreat Kallaroo WA 6025 ",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1665','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1665','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1665');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1665;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "3977186646",
+            "Date_Time": "09:30 28 May 2018",
+            "Client": "Dane  Newman",
+            "Client_phone": "0427110002",
+            "Property_Address": "36 BELLARINE  DRIVE  CRANBOURNE VIC 3977 ",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1664','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1664','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1664');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1664;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "4055186631",
+            "Date_Time": "13:00 03 May 2018",
+            "Client": "Brendan  Roberts",
+            "Client_phone": "0412145833",
+            "Property_Address": "64 CAESAR ROAD FERNY HILLS QLD 4055",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1663','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1663','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1663');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1663;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "2260186628",
+            "Date_Time": "13:30 03 May 2018",
+            "Client": "Allison Dietrich",
+            "Client_phone": "0414188172",
+            "Property_Address": "25 COTSWOLDS CLOSE TERRIGAL NSW 2260 ",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1662','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1662','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1662');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1662;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "2765186602",
+            "Date_Time": "10:30 03 May 2018",
+            "Client": "Wajith  Weragama",
+            "Client_phone": "0414637264",
+            "Property_Address": "Lot 141 Limax Street Box Hill NSW 2765 ",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "New Building Inspection - Frame Stage",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $363.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1660','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1660','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1660');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1660;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "4152186583",
+            "Date_Time": "14:00 02 May 2018",
+            "Client": "Changjun Xiong",
+            "Client_phone": "0407690091",
+            "Property_Address": "3 Kuhler Court Carindale QLD 4152",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1658','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1658','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1658');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1658;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "4011186576",
+            "Date_Time": "10:00 08 May 2018",
+            "Client": "Kelly Walsh",
+            "Client_phone": "0401418300",
+            "Property_Address": "40 Drane Street Clayfield QLD 4011  ",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1657','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1657','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1657');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1657;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "2008186559",
+            "Date_Time": "16:00 10 May 2018",
+            "Client": "Trong Nghia Tran",
+            "Client_phone": "0422024824",
+            "Property_Address": "Unit 905 1 Chippendale Way Chippendale NSW 2008 ",
+            "Building_Type": "Apartment",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "New Building Inspection - Completion Stage",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $385.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1655','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1655','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1655');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1655;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        },
+        {
+            "Reference_Number": "3111186510",
+            "Date_Time": "09:00 02 May 2018",
+            "Client": "CLL Super Fund ",
+            "Client_phone": "0419344092",
+            "Property_Address": "8 HAMAL STREET DONVALE VIC 3111",
+            "Building_Type": "House",
+            "Building_Size": "3 Bedroom +",
+            "Inspection_Type": "Building & Pest Inspection",
+            "Payment": "<span class=\"label label-danger\">$0.0 of $495.00<\/span>",
+            "Status": "<span class=\"label label-primary\">Inspection Pending<\/span>",
+            "options": "<a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpMakePayment?id=1651','form-modal-content');\" ><i class=\"fa fa-usd text-success\" aria-hidden=\"true\" title=\"Add Payment\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"><i class=\"fa fa-envelope text-primary\" aria-hidden=\"true\" title=\"Send Email to The Customer\"><\/i><\/a><a href=\"#\" style=\"margin-right:5px\"  onclick=\"mhmAjax.link('cpDirectSMSChat?id=1651','chat-modal-content');\"><i class=\"fa fa-commenting text-primary\" aria-hidden=\"true\" title=\"Send SMS to The Customer\"><\/i><\/a><a href=\"javascript:\/\/SEO-AJAX\" style=\"margin-right:5px\" onclick=\"Other.wopen('cpGenerateInvoice?id=1651');\"><i class=\"fa fa-file text-success\" aria-hidden=\"true\" title=\"Generate an Invoice\"><\/i><\/a><a  href=\"javascript:\/\/SEO-AJAX\" data-toggle=\"modal\" data-target=\"#confirmModal\" style=\"margin-right:5px\" onclick=\"document.getElementById('item-to-go').value=1651;\"><i class=\"fa fa-trash text-danger\" aria-hidden=\"true\" title=\"Cancel the Booking\"><\/i><\/a>"
+        }
+    ]
+}
