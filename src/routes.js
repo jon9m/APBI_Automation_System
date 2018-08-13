@@ -18,7 +18,7 @@ export const routes = [
         title: 'Dashboard',
         breadcrumb: 'Dashboard',
         breadcrumb_link: true,
-        exact: true,
+        exact: false,
         component: Dashboard,
     },
     {

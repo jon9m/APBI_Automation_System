@@ -151,7 +151,6 @@ class Navigation extends Component {
 
 
 const mapStateToProps = state => {
-    console.dir("updating mapStateToProps in Navigation ");
     return {
         navigationItems: state.navigationState.navigationItems,
         loading: state.navigationState.loading

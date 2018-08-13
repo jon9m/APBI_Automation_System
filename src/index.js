@@ -18,7 +18,7 @@ axios.interceptors.request.use(request => {
     console.log(error);
 });
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter basename="/adminConsole"><App /></BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
 
 

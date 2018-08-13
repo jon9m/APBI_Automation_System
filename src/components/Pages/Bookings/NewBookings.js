@@ -77,13 +77,66 @@ class NewBookings extends Component {
             // }
         ];
 
+        const subcolumns = [
+            {
+                Header: 'Date Time',
+                accessor: 'Date_Time'
+            },
+            {
+                Header: 'Status',
+                accessor: 'Status'
+            },
+            {
+                Header: 'Inspection Type',
+                accessor: 'Inspection_Type'
+            }
+        ];
+
         let newBookings = <Spinner />;
 
         if (!this.props.loading) {
             newBookings = <ReactTable
+
+            //TODO---
+                getTrProps={(state, rowInfo, column, instance) => {
+
+                    if(rowInfo){
+                    //console.log((instance));
+                    return {
+                        // className: 'xxx'
+                        // style: {
+                        //     background: (rowInfo.original.data && rowInfo.original.data.length) > 0 ? "green" : "red"
+                        // }
+                    };
+                    }
+
+                    return {
+
+                    }
+                    
+                }}
+
                 data={this.props.newBookings}
                 columns={columns}
+                defaultPageSize={10}
                 filterable
+
+                SubComponent={row => {
+                    //console.log(JSON.stringify(row.original.data));
+                    let subTable = null;
+                    if (row.original.data) {
+                        subTable = <div style={{ padding: "20px" }}>
+                            <br />
+                            <ReactTable
+                                data={row.original.data}
+                                columns={subcolumns}
+                                defaultPageSize={row.original.data.length}
+                                showPagination={false}
+                            />
+                        </div>;
+                    }
+                    return (subTable);
+                }}
             />;
         }
 
@@ -102,7 +155,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
-    console.dir("updating mapStateToProps in New Bookings ");
     return {
         newBookings: state.dashboardState.data,
         loading: state.dashboardState.isFetching

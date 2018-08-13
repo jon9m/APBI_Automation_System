@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default class Stat extends Component {
     render() {
         return (
             <div className="stat-item">
-                {this.props.value ? <div className="stat-item-value">{this.props.value}</div> : ''}
-                {this.props.title ? <div className="stat-item-title">{this.props.title}</div> : ''}
-                {this.props.subtitle ? <div className="stat-item-subtitle">{this.props.subtitle}</div> : ''}
-                {this.props.label ? <div className={this.props.labelClass ? this.props.labelClass + ' stat-item-label' : 'stat-item-label'}>{this.props.label}</div> : ''}
+                <Link to={this.props.path}>
+                    {this.props.value ? <div className="stat-item-value">{this.props.value}</div> : ''}
+                    {this.props.title ? <div className="stat-item-title">{this.props.title}</div> : ''}
+                    {this.props.subtitle ? <div className="stat-item-subtitle">{this.props.subtitle}</div> : ''}
+                    {this.props.label ? <div className={this.props.labelClass ? this.props.labelClass + ' stat-item-label' : 'stat-item-label'}>{this.props.label}</div> : ''}
+                </Link>
             </div>
         );
     }
@@ -25,9 +28,7 @@ export class StatsWrapper extends Component {
     render() {
         return (
             <div className="stats-wrapper">
-                <a href="">
-                    {this.props.children}
-                </a>
+                {this.props.children}
             </div>
         )
     }
