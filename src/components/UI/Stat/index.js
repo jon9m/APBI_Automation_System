@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class Stat extends Component {
+class Stat extends Component {
     render() {
+        let activeClassName = '';
+        if((this.props.location.pathname) && (this.props.location.pathname === this.props.path)){
+            activeClassName = 'stat-item-selected';
+        }
         return (
-            <div className="stat-item">
+            <div className={['stat-item', activeClassName].join(" ")}>
                 <Link to={this.props.path}>
                     {this.props.value ? <div className="stat-item-value">{this.props.value}</div> : ''}
                     {this.props.title ? <div className="stat-item-title">{this.props.title}</div> : ''}
@@ -37,3 +41,5 @@ export class StatsWrapper extends Component {
 StatsWrapper.propTypes = {
     children: PropTypes.node.isRequired
 }
+
+export default withRouter(Stat);

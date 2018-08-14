@@ -4,31 +4,19 @@ import axios from '../../axios';
 import * as endpoints from '../../Shared/app-global';
 
 export const loadNavigationItems = (workspace) => {
-    // return dispatch => {
-    //     //Async code
-    //     axios.get('/data/navigationitems.json').then(response => {
-    //         dispatch(loadNavigationItemsSucces(response.data));
-    //     }).catch(err => {
-    //         dispatch(loadNavigationItemsFail());
-    //     });
-    // };
-    if (workspace !== 'apbi') {
-        return {
-            type: actionTypes.LOAD_NAVIGATION_ITEMS,
-            navigationItems: []
-        }
-    }
-
     return dispatch => {
-
         dispatch(loadNavigationItemsStarts());
 
-        fetch(endpoints.API_NAVIGATION_ITEMS)   //TODO 
-            .then((response) => response.json())
-            .then((response) => {
-                console.dir(response.data);
-                dispatch(loadNavigationItemsSucces(response.data));
-            });
+        if (workspace === 'apbi') { //TODO
+            fetch(endpoints.API_NAVIGATION_ITEMS)
+                .then((response) => response.json())
+                .then((response) => {
+                    console.dir(response.data);
+                    dispatch(loadNavigationItemsSucces(response.data));
+                });
+        } else {
+            dispatch(loadNavigationItemsFail());
+        }
     }
 }
 

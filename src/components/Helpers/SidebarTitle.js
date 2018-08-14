@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { actionCreators } from '../../store/actions';
@@ -7,6 +7,22 @@ import { actionCreators } from '../../store/actions';
 class SidebarTitle extends Component {
     toggleBodyClass() {
         document.body.classList.toggle('sidebar-title-content-open');
+    }
+
+    removeBodyClass() {
+        document.body.classList.remove('sidebar-title-content-open');
+    }
+
+    redirectToRoot = () => {
+        this.props.history.push({
+            pathname: '/'
+        });
+    }
+
+    changeWorkSpaceHandler(workspace) {
+        this.redirectToRoot();
+        this.removeBodyClass();
+        this.props.onChangeWorkspace(workspace);
     }
 
     render() {
@@ -29,18 +45,18 @@ class SidebarTitle extends Component {
                     <div className="sidebar-title-content-body">
                         <form>
                             <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Search "/>
+                                <input type="text" className="form-control" placeholder="Search " />
                             </div>
                         </form>
                         <ul>
-                            <li onClick={() => this.props.onChangeWorkspace('apbi')}>APBI</li>
-                            <li onClick={() => this.props.onChangeWorkspace('xxx')}>Leath Furniture</li>
-                            <li>Grade A Investment</li>
-                            <li>Desmonds Formal Wear</li>
-                            <li>Dun Rite Lawn Maintenance</li>
-                            <li>Red Robin Stores</li>
-                            <li>Gino's Hamburgers</li>
-                            <li>Wholesale Club, Inc.</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('apbi')}>APBI</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('x')}>Leath Furniture</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('a')}>Grade A Investment</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('b')}>Desmonds Formal Wear</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('c')}>Dun Rite Lawn Maintenance</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('d')}>Red Robin Stores</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('e')}>Gino's Hamburgers</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('f')}>Wholesale Club, Inc.</li>
                         </ul>
 
                         {/* <div className="sidebar-title-content-body-more">
@@ -55,8 +71,10 @@ class SidebarTitle extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChangeWorkspace: (workspace) => (dispatch(actionCreators.loadNavigationItems(workspace)))
+        onChangeWorkspace: (workspace) => {
+            dispatch(actionCreators.loadNavigationItems(workspace));
+        }
     }
 }
 
-export default connect(null, mapDispatchToProps)(SidebarTitle);
+export default withRouter(connect(null, mapDispatchToProps)(SidebarTitle));

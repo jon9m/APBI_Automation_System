@@ -62,15 +62,40 @@ class NewBookings extends Component {
                 Header: 'Inspection Type',
                 accessor: 'Inspection_Type'
             }
-            // ,
-            // {
-            //     Header: 'Payment',
-            //     accessor: 'Payment'
-            // },
-            // {
-            //     Header: 'Status',
-            //     accessor: 'Status'
-            // },
+            ,
+            {
+                Header: 'Payment',
+                accessor: 'Payment_',
+                minWidth: 100,
+                Cell: props => <div>
+                    <button className="button-secondary" style={{ backgroundColor: '#dd4b39' }}>$0.0 of $440.00</button>
+                </div>,
+                filterable: false
+            },
+            {
+                Header: 'Status',
+                accessor: 'Status_',
+                minWidth: 100,
+                Cell: props => <div>
+                    <button className="button-secondary" style={{ backgroundColor: '#f39c12' }}>$0.0 of $440.00</button>
+                </div>,
+                filterable: false
+            },
+            {
+                Header: '',
+                accessor: 'a',
+                minWidth: 200,
+                Cell: props => <div>
+                    <button className="button-facebook">n</button>&nbsp;
+                    <button className="button-danger">p</button>&nbsp;
+                    <button className="button-secondary">m</button>&nbsp;
+                    <button className="button-danger">p</button>&nbsp;
+                    <button className="button-secondary">m</button>&nbsp;
+                    <button className="button-danger">p</button>&nbsp;
+                    <button className="button-secondary">m</button>
+                </div>,
+                filterable: false
+            }
             // {
             //     Header: 'options',
             //     accessor: 'options'
@@ -97,23 +122,23 @@ class NewBookings extends Component {
         if (!this.props.loading) {
             newBookings = <ReactTable
 
-            //TODO---
+                //TODO---
                 getTrProps={(state, rowInfo, column, instance) => {
 
-                    if(rowInfo){
-                    //console.log((instance));
-                    return {
-                        // className: 'xxx'
-                        // style: {
-                        //     background: (rowInfo.original.data && rowInfo.original.data.length) > 0 ? "green" : "red"
-                        // }
-                    };
+                    if (rowInfo) {
+                        //console.log((instance));
+                        return {
+                            // className: 'xxx'
+                            // style: {
+                            //     background: (rowInfo.original.data && rowInfo.original.data.length) > 0 ? "green" : "red"
+                            // }
+                        };
                     }
 
                     return {
 
                     }
-                    
+
                 }}
 
                 data={this.props.newBookings}

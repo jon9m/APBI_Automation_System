@@ -10,6 +10,7 @@ export default function contactReducer(state = initialState, action) {
         case LOAD_NAVIGATION_ITEMS_START:
             return {
                 ...state,
+                navigationItems: [],
                 loading: true
             }
         case LOAD_NAVIGATION_ITEMS:
@@ -21,6 +22,7 @@ export default function contactReducer(state = initialState, action) {
         case LOAD_NAVIGATION_ITEMS_FAIL:
             return {
                 ...state,
+                navigationItems: [],
                 loading: false
             }
         default:

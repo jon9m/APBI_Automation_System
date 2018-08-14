@@ -10,11 +10,11 @@ export default class Dashboard extends Component {
             <div className="content-inner no-padding-top no-padding-left no-padding-right">
                 <Box classes="border-bottom side-margins no-vertical-distance">
                     <StatsWrapper>
-                        <Stat title="NEW BOOKINGS" subtitle="Avg. $458.77" value="$5,256" label="+24%" labelClass="raising" path='/dashboard/newBookings' />
-                        <Stat title="CURRENT BOOKINGS" subtitle="Avg. 351 per wekk" value="5269" label="-12%" labelClass="descreasing" path='/dashboard/currentBookings' />
-                        <Stat title="PAYMENT PENDING" subtitle="Total: 5987" value="+589" label="+6%" labelClass="raising" path='/dashboard/paymentPending' />
-                        <Stat title="COMPLETED BOOKINGS" subtitle="Last 1 month ago" value="98.75%" label="Good" path='/dashboard/completedBookings' />
-                        <Stat title="CANCELLED BOOKINGS" subtitle="Last 1 month ago" value="98.75%" label="Good" path='/dashboard/cancelledBookings' />
+                        <Stat title="NEW BOOKINGS" subtitle="Avg. $458.77" value="$5,256" path='/dashboard/newBookings' />
+                        <Stat title="CURRENT BOOKINGS" subtitle="Avg. 351 per wekk" value="5269" path='/dashboard/currentBookings' />
+                        <Stat title="PAYMENT PENDING" subtitle="Total: 5987" value="+589" path='/dashboard/paymentPending' />
+                        <Stat title="COMPLETED BOOKINGS" subtitle="Last 1 month ago" value="98.75%" path='/dashboard/completedBookings' />
+                        <Stat title="CANCELLED BOOKINGS" subtitle="Last 1 month ago" value="98.75%" path='/dashboard/cancelledBookings' />
                     </StatsWrapper>
                 </Box>
 

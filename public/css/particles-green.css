@@ -1663,6 +1663,9 @@ table {
     .stat-item-label {
       right: 0; } }
 
+.stat-item-selected {
+  font-weight: bold; }
+
 /**
  * 16. Box
  */
