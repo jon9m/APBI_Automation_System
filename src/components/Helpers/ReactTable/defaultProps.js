@@ -35,6 +35,20 @@ export default {
   // eslint-disable-next-line no-unused-vars
   defaultFilterMethod: (filter, row, column) => {
     const id = filter.pivotId || filter.id
+
+    let str = Object.keys(row).map((key) => {
+      return (row[key] && !key.startsWith('_')) ? row[key] : '';
+    }).reduce((curr = '', el) => {
+      if (el && el !== '') {
+        return curr + '' + el;
+      }
+      return curr;
+    }, '');
+
+    console.log(String(str));
+    return (String(str)).indexOf(filter.value) >= 0;
+
+
     return row[id] !== undefined ? String(row[id]).startsWith(filter.value) : true
   },
   // eslint-disable-next-line no-unused-vars
@@ -200,24 +214,24 @@ export default {
   ThComponent: ({
     toggleSort, className, children, ...rest
   }) => (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <div
-      className={classnames('rt-th', className)}
-      onClick={e => toggleSort && toggleSort(e)}
-      role="columnheader"
-      tabIndex="-1" // Resolves eslint issues without implementing keyboard navigation incorrectly
-      {...rest}
-    >
-      {children}
-    </div>
-  ),
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+      <div
+        className={classnames('rt-th', className)}
+        onClick={e => toggleSort && toggleSort(e)}
+        role="columnheader"
+        tabIndex="-1" // Resolves eslint issues without implementing keyboard navigation incorrectly
+        {...rest}
+      >
+        {children}
+      </div>
+    ),
   TdComponent: ({
     toggleSort, className, children, ...rest
   }) => (
-    <div className={classnames('rt-td', className)} role="gridcell" {...rest}>
-      {children}
-    </div>
-  ),
+      <div className={classnames('rt-td', className)} role="gridcell" {...rest}>
+        {children}
+      </div>
+    ),
   TfootComponent: _.makeTemplateComponent('rt-tfoot', 'Tfoot'),
   FilterComponent: ({ filter, onChange }) => (
     <input
@@ -255,10 +269,10 @@ export default {
   LoadingComponent: ({
     className, loading, loadingText, ...rest
   }) => (
-    <div className={classnames('-loading', { '-active': loading }, className)} {...rest}>
-      <div className="-loading-inner">{loadingText}</div>
-    </div>
-  ),
+      <div className={classnames('-loading', { '-active': loading }, className)} {...rest}>
+        <div className="-loading-inner">{loadingText}</div>
+      </div>
+    ),
   NoDataComponent: _.makeTemplateComponent('rt-noData', 'NoData'),
   ResizerComponent: _.makeTemplateComponent('rt-resizer', 'Resizer'),
   PadRowComponent: () => <span>&nbsp;</span>,
