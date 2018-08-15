@@ -1,6 +1,6 @@
 .box {
   @include susy-clearfix();
-  margin: 60px;
+  margin: 10px;
 
   @media (max-width: $media-md) {
     margin-left: 30px;

@@ -22,7 +22,7 @@ class PageTitle extends Component {
             <div className="page-title">
                 <Breadcrumbs/>
 
-                <h1>{this.findTitle()}</h1>
+                {/* <h1>{this.findTitle()}</h1> */}
 
                 <Shortcuts/>
             </div>

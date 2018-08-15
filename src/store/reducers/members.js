@@ -8,7 +8,7 @@ const initialState = {
     error: false
 }
 
-export default function contactReducer(state = initialState, action) {
+export default function memberReducer(state = initialState, action) {
     switch (action.type) {
         case FETCHING_MEMBERS:
             return {

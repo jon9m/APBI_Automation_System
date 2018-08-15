@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { withRouter, matchPath, NavLink } from 'react-router-dom';
-import { routes } from '../../routes';
+// import { routes } from '../../routes';
+
+import {combinedRoutes as routes} from '../../routesCombined'
 
 class Breadcrumbs extends Component {
     getPaths(pathname) {
@@ -22,16 +24,15 @@ class Breadcrumbs extends Component {
 
     render() {
         const paths = this.getPaths(this.props.location.pathname);
-
         const breadcrumbs = paths.map((path, index) => {
             for (let route of routes) {
-                if (matchPath(path, route)) {
+                // if (matchPath(path, route)) {
+                if (path === route.path) {
                     return (
                         <li key={index}>
                             {route.breadcrumb_link ?
-                                <NavLink to={route.path}>
-                                    {route.breadcrumb ? route.breadcrumb : route.title}
-                                </NavLink> : <span>{route.breadcrumb ? route.breadcrumb : route.title}</span>}
+                                <NavLink to={route.path}>{route.breadcrumb ? route.breadcrumb : route.title}</NavLink> 
+                                : <span>{route.breadcrumb ? route.breadcrumb : route.title}</span>}
                         </li>
                     );
                 }

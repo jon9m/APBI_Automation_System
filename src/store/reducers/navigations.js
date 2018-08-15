@@ -5,7 +5,7 @@ const initialState = {
     loading: false
 }
 
-export default function contactReducer(state = initialState, action) {
+export default function navigationReducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_NAVIGATION_ITEMS_START:
             return {

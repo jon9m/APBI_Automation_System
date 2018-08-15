@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactTable from 'react-table';
+import ReactTable from '../../Helpers/ReactTable';
 import { connect } from 'react-redux';
 
 import Spinner from '../../Helpers/Spinner/Spinner';
