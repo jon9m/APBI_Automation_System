@@ -374,7 +374,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       )
     }
 
-    const makeFilter = (column, i) => {
+    const makeFilter = (column, i, arr) => {
       const resizedCol = resized.find(x => x.id === column.id) || {}
       const width = _.getFirstDefined(resizedCol.value, column.width, column.minWidth)
       const maxWidth = _.getFirstDefined(resizedCol.value, column.width, column.maxWidth)
@@ -408,6 +408,10 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
 
       const isFilterable = _.getFirstDefined(column.filterable, filterable, false)
 
+      //TODO - manoj - one search field
+      // let diss = (i === arr.length - 4) ? 'block' : 'none';
+      // console.log("diss " + arr.length);
+
       return (
         <ThComponent
           key={`${i}-${column.id}`}
@@ -417,6 +421,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             flex: `${width} 0 auto`,
             width: _.asPx(width),
             maxWidth: _.asPx(maxWidth),
+            // display: diss //TODO - manoj - one search field
           }}
           {...rest}
         >
@@ -443,22 +448,27 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
         getTheadFilterTrProps(finalState, undefined, undefined, this)
       )
       return (
-        <TheadComponent
-          className={classnames('-filters', theadFilterProps.className)}
-          style={{
-            ...theadFilterProps.style,
-            minWidth: `${rowMinWidth}px`,
-          }}
-          {...theadFilterProps.rest}
-        >
-          <TrComponent
-            className={theadFilterTrProps.className}
-            style={theadFilterTrProps.style}
-            {...theadFilterTrProps.rest}
+        <div>
+          {/* TODO - manoj - one search field */}
+          {/* {allVisibleColumns.map(makeFilter)} */}
+
+          <TheadComponent
+            className={classnames('-filters', theadFilterProps.className)}
+            style={{
+              ...theadFilterProps.style,
+              minWidth: `${rowMinWidth}px`,
+            }}
+            {...theadFilterProps.rest}
           >
-            {allVisibleColumns.map(makeFilter)}
-          </TrComponent>
-        </TheadComponent>
+            <TrComponent
+              className={theadFilterTrProps.className}
+              style={theadFilterTrProps.style}
+              {...theadFilterTrProps.rest}
+            >
+              {allVisibleColumns.map(makeFilter)}
+            </TrComponent>
+          </TheadComponent>
+        </div>
       )
     }
 

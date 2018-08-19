@@ -46,10 +46,10 @@ export default {
     }, '');
 
     console.log(String(str));
-    return (String(str)).indexOf(filter.value) >= 0;
+    return (String(str.toLowerCase())).indexOf(filter.value) >= 0;
 
 
-    return row[id] !== undefined ? String(row[id]).startsWith(filter.value) : true
+    // return row[id] !== undefined ? String(row[id]).startsWith(filter.value) : true
   },
   // eslint-disable-next-line no-unused-vars
   defaultSortMethod: (a, b, desc) => {

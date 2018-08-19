@@ -76,7 +76,6 @@ class CancelledBookings extends Component {
                     let subTable = null;
                     if (row.original.data) {
                         subTable = <div style={{ padding: "20px" }}>
-                            <br />
                             <ReactTable
                                 data={row.original.data}
                                 columns={subcolumns}
