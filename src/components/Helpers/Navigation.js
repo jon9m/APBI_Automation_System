@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
-import Aux from '../../Hoc/Auxi';
+import Auxi from '../../Hoc/Auxi';
 import Spinner from '../Helpers/Spinner/Spinner';
 
 import {
@@ -76,7 +76,7 @@ class Navigation extends Component {
             e.preventDefault();
         }
     }
-    
+
 
     render() {
         let navItems = <Spinner />;
@@ -86,33 +86,37 @@ class Navigation extends Component {
 
         if (!this.props.loading) {
             navItems = Object.keys(navigationItems).map((igKey) => {
-                return <Aux key={igKey}>
-                    <TransitionGroup>
-                        <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
-                            <NavLink 
-                                onClick={(e) => this.mainMenuItemHandleClick(e, navigationItems[igKey].children)}
-                                to={navigationItems[igKey].path} 
-                                exact={true} 
-                                activeClassName="active" 
-                                style={{ backgroundColor: '#4559641f' }}>
-                                <i className="md-icon">{navigationItems[igKey].class}</i> <span>{navigationItems[igKey].title}</span>
-                            </NavLink>
-                        </li>
-                        {
-                            Object.keys(navigationItems[igKey].children).map((cKey) => {
-                                return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
-                                    <CSSTransition key={cKey} timeout={{ enter: 100, exit: 300 }} classNames="fade">
-                                        <li key={cKey} className="submenuitems" onClick={() => this.subItemClickHandler(navigationItems[igKey].children[cKey].path)}>
-                                            <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active" isActive={() => this.isSubItemActive(navigationItems[igKey].children[cKey].path)}>
-                                                <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>
-                                            </NavLink>
-                                        </li>
-                                    </CSSTransition>
-                                    : null
-                            })
-                        }
-                    </TransitionGroup>
-                </Aux>
+                return (
+                    <Auxi key={igKey}>
+                        <TransitionGroup>
+                            <Auxi>
+                                <li onClick={() => this.menuItemClickHandler(navigationItems[igKey].id)}>
+                                    <NavLink
+                                        onClick={(e) => this.mainMenuItemHandleClick(e, navigationItems[igKey].children)}
+                                        to={navigationItems[igKey].path}
+                                        exact={true}
+                                        activeClassName="active"
+                                        style={{ backgroundColor: '#4559641f' }}>
+                                        <i className="md-icon">{navigationItems[igKey].class}</i><span>{navigationItems[igKey].title}</span>
+                                    </NavLink>
+                                </li>
+                            </Auxi>
+                            {
+                                Object.keys(navigationItems[igKey].children).map((cKey) => {
+                                    return this.subMenuItemDisplayHandler(navigationItems[igKey].children[cKey].id) ?
+                                        (<CSSTransition key={cKey} timeout={{ enter: 100, exit: 300 }} classNames="fade">
+                                            <li key={cKey} className="submenuitems" onClick={() => this.subItemClickHandler(navigationItems[igKey].children[cKey].path)}>
+                                                <NavLink to={navigationItems[igKey].children[cKey].path} exact={true} activeClassName="active" isActive={() => this.isSubItemActive(navigationItems[igKey].children[cKey].path)}>
+                                                    <i className="sm-icon">{navigationItems[igKey].children[cKey].class}</i> <span>{navigationItems[igKey].children[cKey].title}</span>
+                                                </NavLink>
+                                            </li>
+                                        </CSSTransition>)
+                                        : null
+                                })
+                            }
+                        </TransitionGroup>
+                    </Auxi>
+                );
             });
         }
 

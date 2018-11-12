@@ -69,7 +69,7 @@ export default class ReactTablePagination extends Component {
 
     return (
       <div className={classnames(className, '-pagination')} style={this.props.style}>
-        <div className="-previous">
+        <div>
           <PreviousComponent
             onClick={() => {
               if (!canPrevious) return
@@ -80,7 +80,7 @@ export default class ReactTablePagination extends Component {
             {this.props.previousText}
           </PreviousComponent>
         </div>
-        <div className="-center">
+        <div>
           <span className="-pageInfo">
             {this.props.pageText}{' '}
             {showPageJump ? (
@@ -122,7 +122,7 @@ export default class ReactTablePagination extends Component {
             </span>
           )}
         </div>
-        <div className="-next">
+        <div>
           <NextComponent
             onClick={() => {
               if (!canNext) return

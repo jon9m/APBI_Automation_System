@@ -45,6 +45,7 @@ export default {
       return curr;
     }, '');
 
+    //MOD - filter by row
     console.log(String(str));
     return (String(str.toLowerCase())).indexOf(filter.value) >= 0;
 

@@ -411,6 +411,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       //TODO - manoj - one search field
       // let diss = (i === arr.length - 4) ? 'block' : 'none';
       // console.log("diss " + arr.length);
+      console.log(column, i, arr);
 
       return (
         <ThComponent
@@ -421,7 +422,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             flex: `${width} 0 auto`,
             width: _.asPx(width),
             maxWidth: _.asPx(maxWidth),
-            // display: diss //TODO - manoj - one search field
+            display: 'none'  //MOD - hide search fields
           }}
           {...rest}
         >
@@ -449,9 +450,6 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       )
       return (
         <div>
-          {/* TODO - manoj - one search field */}
-          {/* {allVisibleColumns.map(makeFilter)} */}
-
           <TheadComponent
             className={classnames('-filters', theadFilterProps.className)}
             style={{
@@ -833,46 +831,59 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
     const makeTable = () => {
       const pagination = makePagination()
       return (
-        <div
-          className={classnames('ReactTable', className, rootProps.className)}
-          style={{
-            ...style,
-            ...rootProps.style,
-          }}
-          {...rootProps.rest}
-        >
-          {showPagination && showPaginationTop ? (
-            <div className="pagination-top">{pagination}</div>
-          ) : null}
-          <TableComponent
-            className={classnames(tableProps.className, currentlyResizing ? 'rt-resizing' : '')}
-            style={tableProps.style}
-            {...tableProps.rest}
+        <React.Fragment>
+
+          {/* MOD - New filer field */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div>
+              <div className="input">
+                <input className="form-control" type="text" style={{ borderRadius: '5px' }} placeholder="Search" onChange={event => this.filterColumn({ id: this.props.filerColumnId }, event.target.value)} />
+              </div>
+            </div>
+            <div className="ReactTable" style={{ border: '1px solid #f0f0f0', marginBottom: '1px' }}>{pagination}</div>
+          </div>
+
+          <div
+            className={classnames('ReactTable', className, rootProps.className)}
+            style={{
+              ...style,
+              ...rootProps.style,
+            }}
+            {...rootProps.rest}
           >
-            {hasHeaderGroups ? makeHeaderGroups() : null}
-            {makeHeaders()}
-            {hasFilters ? makeFilters() : null}
-            <TbodyComponent
-              className={classnames(tBodyProps.className)}
-              style={{
-                ...tBodyProps.style,
-                minWidth: `${rowMinWidth}px`,
-              }}
-              {...tBodyProps.rest}
+            {/* {showPagination && showPaginationTop ? (
+              <div className="pagination-top">{pagination}</div>
+            ) : null} */}
+            <TableComponent
+              className={classnames(tableProps.className, currentlyResizing ? 'rt-resizing' : '')}
+              style={tableProps.style}
+              {...tableProps.rest}
             >
-              {pageRows.map((d, i) => makePageRow(d, i))}
-              {padRows.map(makePadRow)}
-            </TbodyComponent>
-            {hasColumnFooter ? makeColumnFooters() : null}
-          </TableComponent>
-          {showPagination && showPaginationBottom ? (
-            <div className="pagination-bottom">{pagination}</div>
-          ) : null}
-          {!pageRows.length && (
-            <NoDataComponent {...noDataProps}>{_.normalizeComponent(noDataText)}</NoDataComponent>
-          )}
-          <LoadingComponent loading={loading} loadingText={loadingText} {...loadingProps} />
-        </div>
+              {hasHeaderGroups ? makeHeaderGroups() : null}
+              {makeHeaders()}
+              {hasFilters ? makeFilters() : null}
+              <TbodyComponent
+                className={classnames(tBodyProps.className)}
+                style={{
+                  ...tBodyProps.style,
+                  minWidth: `${rowMinWidth}px`,
+                }}
+                {...tBodyProps.rest}
+              >
+                {pageRows.map((d, i) => makePageRow(d, i))}
+                {padRows.map(makePadRow)}
+              </TbodyComponent>
+              {hasColumnFooter ? makeColumnFooters() : null}
+            </TableComponent>
+            {/* {showPagination && showPaginationBottom ? (
+              <div className="pagination-bottom">{pagination}</div>
+            ) : null} */}
+            {!pageRows.length && (
+              <NoDataComponent {...noDataProps}>{_.normalizeComponent(noDataText)}</NoDataComponent>
+            )}
+            <LoadingComponent loading={loading} loadingText={loadingText} {...loadingProps} />
+          </div>
+        </React.Fragment>
       )
     }
 

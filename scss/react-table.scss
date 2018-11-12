@@ -277,7 +277,8 @@
     flex-wrap:wrap;
     padding:3px;
     box-shadow:0 0 15px 0 rgba(0,0,0,0.1);
-    border-top:2px solid rgba(0,0,0,0.1);
+    border: none;
+    // border-top:2px solid rgba(0,0,0,0.1);
 }
 .ReactTable .-pagination input,.ReactTable .-pagination select{
     border:1px solid rgba(0,0,0,0.1);

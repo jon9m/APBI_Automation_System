@@ -66,18 +66,18 @@ class NewBookings extends Component {
             {
                 Header: 'Payment',
                 accessor: 'Payment_',
-                minWidth: 100,
+                minWidth: 120,
                 Cell: props => <div>
-                    <button className="button-secondary" style={{ backgroundColor: '#dd4b39' }}>$0.0 of $440.00</button>
+                    <button className="button-secondary" style={{ backgroundColor: '#dd4b39', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
                 </div>,
                 filterable: false
             },
             {
                 Header: 'Status',
                 accessor: 'Status_',
-                minWidth: 100,
+                minWidth: 120,
                 Cell: props => <div>
-                    <button className="button-secondary" style={{ backgroundColor: '#f39c12' }}>$0.0 of $440.00</button>
+                    <button className="button-secondary" style={{ backgroundColor: '#f39c12', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
                 </div>,
                 filterable: false
             },
@@ -109,7 +109,11 @@ class NewBookings extends Component {
             },
             {
                 Header: 'Status',
-                accessor: 'Status'
+                accessor: 'Status',
+                minWidth: 100,
+                Cell: props => <div>
+                    <button className="button-secondary" style={{ backgroundColor: '#dd4b39', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
+                </div>
             },
             {
                 Header: 'Inspection Type',
@@ -145,12 +149,13 @@ class NewBookings extends Component {
                 columns={columns}
                 defaultPageSize={10}
                 filterable
+                filerColumnId={'Reference_Number'}
 
                 SubComponent={row => {
-                    //console.log(JSON.stringify(row.original.data));
+                    console.log(JSON.stringify(row.original.data));
                     let subTable = null;
                     if (row.original.data) {
-                        subTable = <div style={{ padding: "20px" }}>
+                        subTable = <div style={{ padding: "10px 2px 0px 34px" }}>
                             <ReactTable
                                 data={row.original.data}
                                 columns={subcolumns}

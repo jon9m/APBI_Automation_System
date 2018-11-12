@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 
 //Default configuration - use different instances for different base URLs
-axios.defaults.baseURL = "apbi.com";  //TOD - use config file - then use axios.post('/action').then...
+axios.defaults.baseURL = "apbi.com";  //TODO - use config file - then use axios.post('/action').then...
 axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';  //common headers are general hearder
 axios.defaults.headers.post['Content-type'] = 'appliaction/josn'; //this is deault 
 
