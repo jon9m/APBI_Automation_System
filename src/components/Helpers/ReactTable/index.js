@@ -403,15 +403,8 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       }
 
       const filter = filtered.find(filter => filter.id === column.id)
-
       const ResolvedFilterComponent = column.Filter || FilterComponent
-
-      const isFilterable = _.getFirstDefined(column.filterable, filterable, false)
-
-      //TODO - manoj - one search field
-      // let diss = (i === arr.length - 4) ? 'block' : 'none';
-      // console.log("diss " + arr.length);
-      console.log(column, i, arr);
+      const isFilterable = _.getFirstDefined(column.filterable, filterable, false);
 
       return (
         <ThComponent
@@ -834,13 +827,13 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
         <React.Fragment>
 
           {/* MOD - New filer field */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div className={'SearchBar'}>
             <div>
               <div className="input">
-                <input className="form-control" type="text" style={{ borderRadius: '5px' }} placeholder="Search" onChange={event => this.filterColumn({ id: this.props.filerColumnId }, event.target.value)} />
+                <input className="form-control" type="text" placeholder="Search" onChange={event => this.filterColumn({ id: this.props.filerColumnId }, event.target.value)} />
               </div>
             </div>
-            <div className="ReactTable" style={{ border: '1px solid #f0f0f0', marginBottom: '1px' }}>{pagination}</div>
+            <div className="ReactTable">{pagination}</div>
           </div>
 
           <div

@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import * as endpoints from '../../Shared/app-global';
+import axios from '../../axios-instance';
 
 export function fetchNewBookings() {
     return (dispatch) => {
@@ -8,12 +9,11 @@ export function fetchNewBookings() {
             isFetching: true
         });
 
-        fetch(endpoints.API_NEW_BOOKINGS)
-            .then((response) => response.json())
+        axios.get(endpoints.API_NEW_BOOKINGS)
             .then((response) => {
                 dispatch({
                     type: types.FETCHING_NEWBOOKINGS_SUCCESS,
-                    data: response.data,
+                    data: response.data.bookings,
                     isFetching: false
                 });
             }).catch(err => {
@@ -33,12 +33,11 @@ export function fetchCurrentBookings() {
             isFetching: true
         });
 
-        fetch(endpoints.API_CURRENT_BOOKINGS)
-            .then((response) => response.json())
+        axios.get(endpoints.API_CURRENT_BOOKINGS)
             .then((response) => {
                 dispatch({
                     type: types.FETCHING_CURRENTBOOKINGS_SUCCESS,
-                    data: response.data,
+                    data: response.data.bookings,
                     isFetching: false
                 });
             }).catch(err => {
@@ -58,12 +57,11 @@ export function fetchPaymentPending() {
             isFetching: true
         });
 
-        fetch(endpoints.API_PAYMENTPENDINGS)
-            .then((response) => response.json())
+        axios.get(endpoints.API_PAYMENTPENDINGS)
             .then((response) => {
                 dispatch({
                     type: types.FETCHING_PAYMENTPENDINGS_SUCCESS,
-                    data: response.data,
+                    data: response.data.payments,
                     isFetching: false
                 });
             }).catch(err => {
@@ -83,12 +81,11 @@ export function fetchCompletedBookings() {
             isFetching: true
         });
 
-        fetch(endpoints.API_COMPLETED_BOOKINGS)
-            .then((response) => response.json())
+        axios.get(endpoints.API_COMPLETED_BOOKINGS)
             .then((response) => {
                 dispatch({
                     type: types.FETCHING_COMPLETEDBOOKINGS_SUCCESS,
-                    data: response.data,
+                    data: response.data.bookings,
                     isFetching: false
                 });
             }).catch(err => {
@@ -109,12 +106,11 @@ export function fetchCancelledBookings() {
             isFetching: true
         });
 
-        fetch(endpoints.API_CANCELLED_BOOKINGS)
-            .then((response) => response.json())
+        axios.get(endpoints.API_CANCELLED_BOOKINGS)
             .then((response) => {
                 dispatch({
                     type: types.FETCHING_CANCELLEDBOOKINGS_SUCCESS,
-                    data: response.data,
+                    data: response.data.bookings,
                     isFetching: false
                 });
             }).catch(err => {

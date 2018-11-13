@@ -2,7 +2,7 @@
     "draw": 2,
     "recordsTotal": 1265,
     "recordsFiltered": 1265,
-    "data": [
+    "bookings": [
         {
             "Reference_Number": "3977186646",
             "Date_Time": "09:30 28 May 2018",

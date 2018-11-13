@@ -1,18 +1,19 @@
 
 import * as actionTypes from './actionTypes';
-import axios from '../../axios';
 import * as endpoints from '../../Shared/app-global';
+import axios from '../../axios-instance';
 
 export const loadNavigationItems = (workspace) => {
     return dispatch => {
         dispatch(loadNavigationItemsStarts());
 
         if (workspace === 'apbi') { //TODO
-            fetch(endpoints.API_NAVIGATION_ITEMS)
-                .then((response) => response.json())
+            axios.get(endpoints.API_NAVIGATION_ITEMS)
                 .then((response) => {
-                    console.dir(response.data);
-                    dispatch(loadNavigationItemsSucces(response.data));
+                    console.dir(response.data.navitems);
+                    dispatch(loadNavigationItemsSucces(response.data.navitems));
+                }).catch(err => {
+                    dispatch(loadNavigationItemsFail());
                 });
         } else {
             dispatch(loadNavigationItemsFail());

@@ -71,6 +71,7 @@ class CompletedBookings extends Component {
                 columns={columns}
                 defaultPageSize={10}
                 filterable
+                filerColumnId={'Reference_Number'}
 
                 SubComponent={row => {
                     let subTable = null;

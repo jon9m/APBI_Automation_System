@@ -1,6 +1,6 @@
 {
 	"pagination": {},
-	"data": [
+	"bookings": [
 		{
 			"id": 1,
 			"avatar": "/img/tmp/user-1.jpg",

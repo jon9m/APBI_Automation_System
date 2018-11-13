@@ -275,8 +275,8 @@
     align-items:stretch;
     -ms-flex-wrap:wrap;
     flex-wrap:wrap;
-    padding:3px;
-    box-shadow:0 0 15px 0 rgba(0,0,0,0.1);
+    padding:1px;
+    // box-shadow:0 0 15px 0 rgba(0,0,0,0.1);
     border: none;
     // border-top:2px solid rgba(0,0,0,0.1);
 }
@@ -412,4 +412,19 @@
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
+}
+
+.SearchBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.SearchBar input{
+    border-radius: 5px;
+}
+
+.SearchBar .ReactTable {
+    border: 1px solid #f0f0f0;
 }
