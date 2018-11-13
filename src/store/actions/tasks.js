@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import axios from '../../axios-instance';
 
 export function fetchTasks() {
   return (dispatch) => {
@@ -6,12 +7,11 @@ export function fetchTasks() {
       type: types.FETCHING_TASKS
     });
 
-    fetch('/data/tasks.json')
-      .then((response) => response.json())
+    axios.get('/data/tasks.json')
       .then((response) => {
         dispatch({
           type: types.FETCHING_TASKS_SUCCESS,
-          data: response.data,
+          data: response.data.tasks,
           dataFetched: true,
           pagination: response.pagination
         });

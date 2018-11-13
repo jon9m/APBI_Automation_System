@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import axios from '../../axios-instance';
 
 export function fetchProjects() {
     return (dispatch) => {
@@ -6,12 +7,11 @@ export function fetchProjects() {
             type: types.FETCHING_PROJECTS
         });
 
-        fetch('/data/projects.json')
-            .then((response) => response.json())
+        axios.get('/data/projects.json')
             .then((response) => {
                 dispatch({
                     type: types.FETCHING_PROJECTS_SUCCESS,
-                    data: response.data,
+                    data: response.data.projects,
                     dataFetched: true,
                     pagination: response.pagination
                 });

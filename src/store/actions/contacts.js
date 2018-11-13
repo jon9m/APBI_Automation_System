@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import axios from '../../axios-instance';
 
 export function fetchContacts() {
   return (dispatch) => {
@@ -6,12 +7,11 @@ export function fetchContacts() {
       type: types.FETCHING_CONTACTS
     });
 
-    fetch('/data/contacts.json')
-      .then((response) => response.json())
+    axios.get('/data/contacts.json')
       .then((response) => {
         dispatch({
           type: types.FETCHING_CONTACTS_SUCCESS,
-          data: response.data,
+          data: response.data.contacts,
           dataFetched: true,
           pagination: response.pagination
         });
