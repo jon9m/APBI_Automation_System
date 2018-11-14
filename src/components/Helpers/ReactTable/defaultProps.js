@@ -49,7 +49,6 @@ export default {
     console.log(String(str));
     return (String(str.toLowerCase())).indexOf(filter.value.toLowerCase()) >= 0;
 
-
     // return row[id] !== undefined ? String(row[id]).startsWith(filter.value) : true
   },
   // eslint-disable-next-line no-unused-vars
@@ -184,7 +183,7 @@ export default {
   previousText: 'Previous',
   nextText: 'Next',
   loadingText: 'Loading...',
-  noDataText: 'No rows found',
+  noDataText: 'No data available',
   pageText: 'Page',
   ofText: 'of',
   rowsText: 'rows',

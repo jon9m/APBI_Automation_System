@@ -54,7 +54,7 @@ class NewBookings extends Component {
                     <button className="button-secondary" style={{ backgroundColor: '#dd4b39', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
                 </div>,
                 filterable: false,
-                sortable : false
+                sortable: false
             },
             {
                 Header: 'Status',
@@ -64,7 +64,7 @@ class NewBookings extends Component {
                     <button className="button-secondary" style={{ backgroundColor: '#f39c12', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
                 </div>,
                 filterable: false,
-                sortable : false
+                sortable: false
             },
             {
                 Header: '',
@@ -80,7 +80,7 @@ class NewBookings extends Component {
                     <button className="button-secondary">m</button>
                 </div>,
                 filterable: false,
-                sortable : false
+                sortable: false
             }
         ];
 
@@ -96,7 +96,7 @@ class NewBookings extends Component {
                 Cell: props => <div>
                     <button className="button-secondary" style={{ backgroundColor: '#dd4b39', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
                 </div>,
-                sortable : false
+                sortable: false
             },
             {
                 Header: 'Inspection Type',
@@ -135,10 +135,9 @@ class NewBookings extends Component {
                 filerColumnId={'Reference_Number'}
 
                 SubComponent={row => {
-                    console.log(JSON.stringify(row.original.data));
                     let subTable = null;
                     if (row.original.data) {
-                        subTable = <div style={{ padding: "10px 2px 0px 34px" }}>
+                        subTable = <div className={'SubTable'}>
                             <ReactTable
                                 data={row.original.data}
                                 columns={subcolumns}

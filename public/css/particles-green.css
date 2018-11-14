@@ -2787,6 +2787,9 @@ table {
   -ms-user-select: none;
   user-select: none; }
 
+.ReactTable .SubTable {
+  padding: 10px 2px 0px 34px; }
+
 .SearchBar {
   display: flex;
   align-items: center;

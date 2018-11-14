@@ -837,7 +837,6 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             </div>) : null
           }
 
-
           <div
             className={classnames('ReactTable', className, rootProps.className)}
             style={{
