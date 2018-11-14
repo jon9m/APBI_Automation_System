@@ -826,15 +826,18 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       return (
         <React.Fragment>
 
-          {/* MOD - New filer field */}
-          <div className={'SearchBar'}>
-            <div>
-              <div className="input">
-                <input className="form-control" type="text" placeholder="Search" onChange={event => this.filterColumn({ id: this.props.filerColumnId }, event.target.value)} />
+          {/* MOD - New filer field - only for main table */}
+          {SubComponent ?
+            (<div className={'SearchBar'}>
+              <div>
+                <div className="input">
+                  <input className="form-control" type="text" placeholder="Search" onChange={event => this.filterColumn({ id: this.props.filerColumnId }, event.target.value)} />
+                </div>
               </div>
-            </div>
-            <div className="ReactTable">{pagination}</div>
-          </div>
+              <div className="ReactTable">{pagination}</div>
+            </div>) : null
+          }
+
 
           <div
             className={classnames('ReactTable', className, rootProps.className)}
