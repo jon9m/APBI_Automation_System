@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { actionCreators } from '../../store/actions';
@@ -38,10 +38,6 @@ class SidebarTitle extends Component {
                 </div>
 
                 <div className="sidebar-title-content">
-                    {/* <div className="sidebar-title-content-label">
-                        Switch Workspace
-                    </div> */}
-
                     <div className="sidebar-title-content-body">
                         <form>
                             <div className="form-group">
@@ -50,18 +46,9 @@ class SidebarTitle extends Component {
                         </form>
                         <ul>
                             <li onClick={() => this.changeWorkSpaceHandler('apbi')}>APBI</li>
-                            <li onClick={() => this.changeWorkSpaceHandler('x')}>Leath Furniture</li>
-                            <li onClick={() => this.changeWorkSpaceHandler('a')}>Grade A Investment</li>
-                            <li onClick={() => this.changeWorkSpaceHandler('b')}>Desmonds Formal Wear</li>
-                            <li onClick={() => this.changeWorkSpaceHandler('c')}>Dun Rite Lawn Maintenance</li>
-                            <li onClick={() => this.changeWorkSpaceHandler('d')}>Red Robin Stores</li>
-                            <li onClick={() => this.changeWorkSpaceHandler('e')}>Gino's Hamburgers</li>
-                            <li onClick={() => this.changeWorkSpaceHandler('f')}>Wholesale Club, Inc.</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('sca')}>Short Courses Australia</li>
+                            <li onClick={() => this.changeWorkSpaceHandler('pm')}>Portal Management</li>
                         </ul>
-
-                        {/* <div className="sidebar-title-content-body-more">
-                            Show All Companies
-                        </div> */}
                     </div>
                 </div>
             </h1>

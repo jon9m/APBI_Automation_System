@@ -5,7 +5,6 @@
 .stat-item {
 	border-right: 1px solid rgba(#000, .06);
 	box-sizing: border-box;
-	padding: 45px 0;
 	position: relative;
 
 	&:first-child {
@@ -93,4 +92,9 @@
 
 .stat-item-selected {
 	font-weight: bold;
+}
+
+.stat-item a {
+	display: block;
+	padding: 45px 0;
 }

@@ -1,37 +1,36 @@
-import React, { Component } from 'react'
-import classnames from 'classnames'
-//
-import _ from './utils'
-import Lifecycle from './lifecycle'
-import Methods from './methods'
-import defaultProps from './defaultProps'
-import propTypes from './propTypes'
+import React, { Component } from 'react';
+import classnames from 'classnames';
+import _ from './utils';
+import Lifecycle from './lifecycle';
+import Methods from './methods';
+import defaultProps from './defaultProps';
+import propTypes from './propTypes';
 
-export const ReactTableDefaults = defaultProps
+export const ReactTableDefaults = defaultProps;
 
 export default class ReactTable extends Methods(Lifecycle(Component)) {
-  static propTypes = propTypes
-  static defaultProps = defaultProps
+  static propTypes = propTypes;
+  static defaultProps = defaultProps;
 
   constructor(props) {
-    super()
+    super();
 
-    this.getResolvedState = this.getResolvedState.bind(this)
-    this.getDataModel = this.getDataModel.bind(this)
-    this.getSortedData = this.getSortedData.bind(this)
-    this.fireFetchData = this.fireFetchData.bind(this)
-    this.getPropOrState = this.getPropOrState.bind(this)
-    this.getStateOrProp = this.getStateOrProp.bind(this)
-    this.filterData = this.filterData.bind(this)
-    this.sortData = this.sortData.bind(this)
-    this.getMinRows = this.getMinRows.bind(this)
-    this.onPageChange = this.onPageChange.bind(this)
-    this.onPageSizeChange = this.onPageSizeChange.bind(this)
-    this.sortColumn = this.sortColumn.bind(this)
-    this.filterColumn = this.filterColumn.bind(this)
-    this.resizeColumnStart = this.resizeColumnStart.bind(this)
-    this.resizeColumnEnd = this.resizeColumnEnd.bind(this)
-    this.resizeColumnMoving = this.resizeColumnMoving.bind(this)
+    this.getResolvedState = this.getResolvedState.bind(this);
+    this.getDataModel = this.getDataModel.bind(this);
+    this.getSortedData = this.getSortedData.bind(this);
+    this.fireFetchData = this.fireFetchData.bind(this);
+    this.getPropOrState = this.getPropOrState.bind(this);
+    this.getStateOrProp = this.getStateOrProp.bind(this);
+    this.filterData = this.filterData.bind(this);
+    this.sortData = this.sortData.bind(this);
+    this.getMinRows = this.getMinRows.bind(this);
+    this.onPageChange = this.onPageChange.bind(this);
+    this.onPageSizeChange = this.onPageSizeChange.bind(this);
+    this.sortColumn = this.sortColumn.bind(this);
+    this.filterColumn = this.filterColumn.bind(this);
+    this.resizeColumnStart = this.resizeColumnStart.bind(this);
+    this.resizeColumnEnd = this.resizeColumnEnd.bind(this);
+    this.resizeColumnMoving = this.resizeColumnMoving.bind(this);
 
     this.state = {
       page: props.defaultPage,
@@ -42,7 +41,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       resized: props.defaultResized,
       currentlyResizing: false,
       skipNextSort: false,
-    }
+    };
   }
 
   render() {
@@ -130,17 +129,17 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       // Sorted Data
       sortedData,
       currentlyResizing,
-    } = resolvedState
+    } = resolvedState;
 
     // Pagination
-    const startRow = pageSize * page
-    const endRow = startRow + pageSize
-    let pageRows = manual ? resolvedData : sortedData.slice(startRow, endRow)
-    const minRows = this.getMinRows()
-    const padRows = _.range(Math.max(minRows - pageRows.length, 0))
+    const startRow = pageSize * page;
+    const endRow = startRow + pageSize;
+    let pageRows = manual ? resolvedData : sortedData.slice(startRow, endRow);
+    const minRows = this.getMinRows();
+    const padRows = _.range(Math.max(minRows - pageRows.length, 0));
 
-    const hasColumnFooter = allVisibleColumns.some(d => d.Footer)
-    const hasFilters = filterable || allVisibleColumns.some(d => d.filterable)
+    const hasColumnFooter = allVisibleColumns.some(d => d.Footer);
+    const hasFilters = filterable || allVisibleColumns.some(d => d.filterable);
 
     const recurseRowsViewIndex = (rows, path = [], index = -1) => [
       rows.map((row, i) => {
@@ -161,19 +160,19 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       }),
       index,
     ];
-    [pageRows] = recurseRowsViewIndex(pageRows)
+    [pageRows] = recurseRowsViewIndex(pageRows);
 
-    const canPrevious = page > 0
-    const canNext = page + 1 < pages
+    const canPrevious = page > 0;
+    const canNext = page + 1 < pages;
 
     const rowMinWidth = _.sum(
       allVisibleColumns.map(d => {
         const resizedColumn = resized.find(x => x.id === d.id) || {}
         return _.getFirstDefined(resizedColumn.value, d.width, d.minWidth)
       })
-    )
+    );
 
-    let rowIndex = -1
+    let rowIndex = -1;
 
     const finalState = {
       ...resolvedState,
@@ -186,13 +185,13 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
       canPrevious,
       canNext,
       rowMinWidth,
-    }
+    };
 
-    const rootProps = _.splitProps(getProps(finalState, undefined, undefined, this))
-    const tableProps = _.splitProps(getTableProps(finalState, undefined, undefined, this))
-    const tBodyProps = _.splitProps(getTbodyProps(finalState, undefined, undefined, this))
-    const loadingProps = getLoadingProps(finalState, undefined, undefined, this)
-    const noDataProps = getNoDataProps(finalState, undefined, undefined, this)
+    const rootProps = _.splitProps(getProps(finalState, undefined, undefined, this));
+    const tableProps = _.splitProps(getTableProps(finalState, undefined, undefined, this));
+    const tBodyProps = _.splitProps(getTbodyProps(finalState, undefined, undefined, this));
+    const loadingProps = getLoadingProps(finalState, undefined, undefined, this);
+    const noDataProps = getNoDataProps(finalState, undefined, undefined, this);
 
     // Visual Components
 
@@ -253,7 +252,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             column,
           })}
         </ThComponent>
-      )
+      );
     }
 
     const makeHeaderGroups = () => {
@@ -348,7 +347,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
           </div>
           {resizer}
         </ThComponent>
-      )
+      );
     }
 
     const makeHeaders = () => {
@@ -431,7 +430,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             )
             : null}
         </ThComponent>
-      )
+      );
     }
 
     const makeFilters = () => {
@@ -460,7 +459,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             </TrComponent>
           </TheadComponent>
         </div>
-      )
+      );
     }
 
     const makePageRow = (row, i, path = []) => {
@@ -676,7 +675,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             rowInfo.subRows.map((d, i) => makePageRow(d, i, rowInfo.nestingPath))}
           {SubComponent && !rowInfo.subRows && isExpanded && SubComponent(rowInfo)}
         </TrGroupComponent>
-      )
+      );
     }
 
     const makePadColumn = (column, i) => {
@@ -710,7 +709,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
         >
           {_.normalizeComponent(PadRowComponent)}
         </TdComponent>
-      )
+      );
     }
 
     const makePadRow = (row, i) => {
@@ -729,7 +728,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             {allVisibleColumns.map(makePadColumn)}
           </TrComponent>
         </TrGroupComponent>
-      )
+      );
     }
 
     const makeColumnFooter = (column, i) => {
@@ -776,7 +775,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             column,
           })}
         </TdComponent>
-      )
+      );
     }
 
     const makeColumnFooters = () => {
@@ -799,7 +798,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             {allVisibleColumns.map(makeColumnFooter)}
           </TrComponent>
         </TfootComponent>
-      )
+      );
     }
 
     const makePagination = () => {
@@ -818,7 +817,7 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
           style={paginationProps.style}
           {...paginationProps.rest}
         />
-      )
+      );
     }
 
     const makeTable = () => {
@@ -847,9 +846,6 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
             }}
             {...rootProps.rest}
           >
-            {/* {showPagination && showPaginationTop ? (
-              <div className="pagination-top">{pagination}</div>
-            ) : null} */}
             <TableComponent
               className={classnames(tableProps.className, currentlyResizing ? 'rt-resizing' : '')}
               style={tableProps.style}
@@ -871,19 +867,16 @@ export default class ReactTable extends Methods(Lifecycle(Component)) {
               </TbodyComponent>
               {hasColumnFooter ? makeColumnFooters() : null}
             </TableComponent>
-            {/* {showPagination && showPaginationBottom ? (
-              <div className="pagination-bottom">{pagination}</div>
-            ) : null} */}
             {!pageRows.length && (
               <NoDataComponent {...noDataProps}>{_.normalizeComponent(noDataText)}</NoDataComponent>
             )}
             <LoadingComponent loading={loading} loadingText={loadingText} {...loadingProps} />
           </div>
         </React.Fragment>
-      )
+      );
     }
 
     // childProps are optionally passed to a function-as-a-child
-    return children ? children(finalState, makeTable, this) : makeTable()
+    return children ? children(finalState, makeTable, this) : makeTable();
   }
 }

@@ -1595,7 +1595,6 @@ table {
 .stat-item {
   border-right: 1px solid rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
-  padding: 45px 0;
   position: relative; }
   .stat-item:first-child {
     margin-left: 0; }
@@ -1665,6 +1664,10 @@ table {
 
 .stat-item-selected {
   font-weight: bold; }
+
+.stat-item a {
+  display: block;
+  padding: 45px 0; }
 
 /**
  * 16. Box

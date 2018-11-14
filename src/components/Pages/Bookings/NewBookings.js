@@ -12,24 +12,7 @@ class NewBookings extends Component {
     }
 
     render() {
-
         const columns = [
-            // {
-            //     Header: 'Name',
-            //     accessor: 'name' // String-based value accessors!
-            // }, {
-            //     Header: 'Age',
-            //     accessor: 'age',
-            //     Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-            // }, {
-            //     id: 'friendName', // Required because our accessor is not a string
-            //     Header: 'Friend Name',
-            //     accessor: d => d.friend.name // Custom value accessors!
-            // }, {
-            //     Header: props => <span>Friend Age</span>, // Custom header components!
-            //     accessor: 'friend.age'
-            // }
-
             {
                 Header: 'Reference Number',
                 accessor: 'Reference_Number'
@@ -70,7 +53,8 @@ class NewBookings extends Component {
                 Cell: props => <div>
                     <button className="button-secondary" style={{ backgroundColor: '#dd4b39', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
                 </div>,
-                filterable: false
+                filterable: false,
+                sortable : false
             },
             {
                 Header: 'Status',
@@ -79,7 +63,8 @@ class NewBookings extends Component {
                 Cell: props => <div>
                     <button className="button-secondary" style={{ backgroundColor: '#f39c12', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
                 </div>,
-                filterable: false
+                filterable: false,
+                sortable : false
             },
             {
                 Header: '',
@@ -94,12 +79,9 @@ class NewBookings extends Component {
                     <button className="button-danger">p</button>&nbsp;
                     <button className="button-secondary">m</button>
                 </div>,
-                filterable: false
+                filterable: false,
+                sortable : false
             }
-            // {
-            //     Header: 'options',
-            //     accessor: 'options'
-            // }
         ];
 
         const subcolumns = [
@@ -113,7 +95,8 @@ class NewBookings extends Component {
                 minWidth: 100,
                 Cell: props => <div>
                     <button className="button-secondary" style={{ backgroundColor: '#dd4b39', 'borderRadius': '5px' }}>$0.0 of $440.00</button>
-                </div>
+                </div>,
+                sortable : false
             },
             {
                 Header: 'Inspection Type',
